@@ -1,8 +1,38 @@
+import { NunitoUiDisplay, SkylarSansBoldUiDisplay } from "@/lib/fonts";
+import cn from "clsx";
+
 const Home = () => {
   return (
     <div className="container mx-auto p-4">
-      <h4>Home</h4>
-      <p>
+      <div className="max-h-[732px] leading-[150px]">
+        <h4
+          className={`${cn(
+            SkylarSansBoldUiDisplay.variable,
+            SkylarSansBoldUiDisplay.className
+          )} text-[100px] lg:text-[180px] font-[300]`}
+        >
+          Passionate
+        </h4>
+        <h3
+          className={`${cn(
+            SkylarSansBoldUiDisplay.variable,
+            SkylarSansBoldUiDisplay.className
+          )} text-[100px] lg:text-[180px] font-bold`}
+        >
+          Software
+        </h3>
+        <h3
+          className={`${cn(
+            SkylarSansBoldUiDisplay.variable,
+            SkylarSansBoldUiDisplay.className
+          )} text-[100px] lg:text-[180px]`}
+        >
+          engineer
+        </h3>
+      </div>
+      <p
+        className={`${cn(NunitoUiDisplay.variable, NunitoUiDisplay.className)}`}
+      >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit incidunt
         minus nesciunt pariatur laudantium, dolore impedit dignissimos dolorum,
         accusamus quidem veniam excepturi aperiam saepe, veritatis quibusdam

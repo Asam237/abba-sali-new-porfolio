@@ -1,43 +1,43 @@
 import localFont from "next/font/local";
 
 /**
- * Euclide UI Display
+ * Nunito
  */
-export const CairoUiDisplay = localFont({
+export const NunitoUiDisplay = localFont({
   src: [
     {
-      path: "../fonts/Cairo-Light.ttf",
-      weight: "300",
-      style: "light",
-    },
-    {
-      path: "../fonts/Cairo-Regular.ttf",
-      weight: "500",
+      path: "../fonts/Nunito/sans.ttf",
+      weight: "400",
       style: "normal",
-    },
-    {
-      path: "../fonts/Cairo-Bold.ttf",
-      weight: "800",
-      style: "bold",
     },
   ],
   display: "swap",
-  variable: "--font-cairo-ui-display",
+  variable: "--font-nunito-ui-display",
   preload: true,
 });
 
 /**
- * MuseoSlab
+ * SkylarSansBold
  */
-export const MuseoSlabUiDisplay = localFont({
+export const SkylarSansBoldUiDisplay = localFont({
   src: [
     {
-      path: "../fonts/MuseoSlab/Museo.otf",
+      path: "../fonts/SkylarSans/sans.otf",
+      weight: "300",
+      style: "light",
+    },
+    {
+      path: "../fonts/SkylarSans/bold.ttf",
+      weight: "700",
+      style: "bold",
+    },
+    {
+      path: "../fonts/SkylarSans/regular.ttf",
       weight: "500",
       style: "normal",
     },
   ],
   display: "swap",
-  variable: "--font-museo-slab-ui-display",
+  variable: "--font-skylar-slab-ui-display",
   preload: true,
 });
