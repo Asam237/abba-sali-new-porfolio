@@ -10,6 +10,16 @@ export const NunitoUiDisplay = localFont({
       weight: "400",
       style: "normal",
     },
+    {
+      path: "../fonts/Nunito/regular.ttf",
+      weight: "500",
+      style: "medium",
+    },
+    {
+      path: "../fonts/Nunito/bold.ttf",
+      weight: "600",
+      style: "bold",
+    },
   ],
   display: "swap",
   variable: "--font-nunito-ui-display",
