@@ -16,7 +16,7 @@ module.exports = {
       },
       colors: {
         primary: {
-          DEFAULT: "#006DB2",
+          DEFAULT: "#C2C2C2",
         },
         primaryTitle: {
           DEFAULT: "#0E3758",
@@ -41,7 +41,8 @@ module.exports = {
       addComponents({
         ".container": {
           marginLeft: "auto",
-          maxWidth: "80%",
+          width: "960px",
+          maxWidth: "98%",
           marginRight: "auto",
         },
       });
