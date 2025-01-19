@@ -1,17 +1,14 @@
-import { NunitoUiDisplay } from "@/lib/fonts";
-import cn from "clsx";
+import Image from "next/image";
+import ABBASALI from "../../../public/pictures/abbasali.png";
 
 const Footer = () => {
   return (
-    <footer>
-      <h1
-        className={`${cn(
-          NunitoUiDisplay.variable,
-          NunitoUiDisplay.className
-        )} font-bold`}
-      >
-        ABBA SALI
-      </h1>
+    <footer className="lg:mt-[200px] mx-2">
+      <Image
+        alt="pic"
+        src={ABBASALI}
+        className="h-[100px] sm:h-[160px] lg:h-[220px] xl:h-[360px] w-full mx-auto"
+      />
     </footer>
   );
 };

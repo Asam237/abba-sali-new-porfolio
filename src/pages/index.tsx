@@ -1,5 +1,6 @@
 import About from "@/components/About";
 import Experiences from "@/components/Experience";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Skills from "@/components/Skills";
 import DefaultLayout from "@/layouts/default.layout";
@@ -15,6 +16,7 @@ const Home = () => {
           <Experiences className="mt-[40px]" />
         </div>
       </DefaultLayout>
+      <Footer />
     </div>
   );
 };
