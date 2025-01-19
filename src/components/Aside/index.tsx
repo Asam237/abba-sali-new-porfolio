@@ -11,27 +11,27 @@ type NavType = {
 const navs: NavType[] = [
   {
     name: "About",
-    path: "#",
+    path: "/#about",
   },
   {
-    name: "Skills",
-    path: "#",
+    name: "Skrills",
+    path: "/#skrills",
   },
   {
-    name: "Experience",
-    path: "#",
+    name: "Experiences",
+    path: "/#experiences",
   },
   {
-    name: "Education",
-    path: "#",
+    name: "Educations",
+    path: "/#educations",
   },
   {
     name: "Selected projects",
-    path: "#",
+    path: "/#selected-projects",
   },
   {
     name: "Contact",
-    path: "#",
+    path: "/#contact",
   },
 ];
 
@@ -42,24 +42,30 @@ const Aside = () => {
         <div className="flex flex-col">
           <div className="flex justify-start items-center">
             <FaBars className="flex xl:hidden" size={24} />
-            <h4
+            <Link
+              href={"/"}
               className={`${cn(
                 NunitoUiDisplay.variable,
                 NunitoUiDisplay.className
-              )} text-[#181F1C] text-[16px] leading-[21.82px] font-[600] tracking-[1%] pl-4 lg:pl-0`}
+              )} text-[#181F1C] text-[16px] leading-[21.82px] font-[600] tracking-[1%] pl-4 lg:pl-0 relative group`}
             >
-              Abba sali
-            </h4>
+              Abba Sali
+              <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
+            </Link>
           </div>
           <div className="hidden xl:flex mt-[119px]">
-            <ul className="flex flex-col space-y-1">
+            <ul className="flex flex-col space-y-[6px]">
               {navs.map((item, index) => (
                 <Link
                   href={item.path}
                   key={index}
-                  className="text-[13px] sm:text-[16px] leading-[24px] tracking-[1%]"
+                  className={`${cn(
+                    NunitoUiDisplay.variable,
+                    NunitoUiDisplay.className
+                  )} relative group font-[500] inline-block text-[#181F1C] transition duration-300 hover:text-[#000000] hover:font-[600]`}
                 >
                   {item.name}
+                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </ul>

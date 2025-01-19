@@ -5,8 +5,32 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Skills from "@/components/Skills";
 import DefaultLayout from "@/layouts/default.layout";
+import { useEffect, useState } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 const Home = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
   return (
     <div className="bg-primary">
       <Aside />
@@ -18,6 +42,14 @@ const Home = () => {
           <Experiences className="mt-[40px]" />
         </div>
       </DefaultLayout>
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed rounded-full cursor-pointer bottom-[50px] right-[50px] border-2 border-[#181F1C] w-16 h-16 hidden xl:flex items-center justify-center hover:border-[3px] bg-primary z-10"
+        >
+          <FaArrowUp />
+        </button>
+      )}
       <Footer />
     </div>
   );

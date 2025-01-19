@@ -14,7 +14,7 @@ const Header = () => {
     </h3>
   );
   return (
-    <header>
+    <header id="/">
       <div className="xl:h-[732px] max-w-[960px]">
         <div className="xl:h-[252px] xl:gap-[10px]">
           <h4
