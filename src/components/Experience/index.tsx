@@ -33,7 +33,7 @@ const experiences: ExperienceType[] = [
 
 const Experiences = ({ className, ...props }: SkillsProps) => {
   return (
-    <section {...props} className={className}>
+    <section {...props} className={className} id="experiences">
       <TitleSection title="experience" />
       <div className="mt-[40px]">
         {experiences.map((item, index) => (

@@ -8,7 +8,7 @@ interface AboutProps extends React.HTMLAttributes<HTMLElement> {}
 
 const About = ({ className, ...props }: AboutProps) => {
   return (
-    <section {...props} className={className}>
+    <section {...props} className={className} id="about">
       <TitleSection title="About" />
       <div className="my-[10px] sm:my-[20px] lg:my-[30px] xl:my-[40px] gap-[10px] xl:gap-[40px] pb-[10px] xl:pb-[40px]">
         <div className="pt-[10px] sm:pt-[20px] lg:pt-[30px] xl:pt-[40px]">

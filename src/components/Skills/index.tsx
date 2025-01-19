@@ -19,7 +19,7 @@ const skrills: string[] = [
 
 const Skills = ({ className, ...props }: SkillsProps) => {
   return (
-    <section {...props} className={className}>
+    <section {...props} className={className} id="skrills">
       <TitleSection title="skrills" />
       <div className="mt-[40px]">
         {skrills.map((item, index) => (
