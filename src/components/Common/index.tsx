@@ -37,3 +37,19 @@ export const ParagraphBody = ({ children, className }: ParagraphBodyProps) => {
     </p>
   );
 };
+
+export const ParagraphContent = ({
+  children,
+  className,
+}: ParagraphBodyProps) => {
+  return (
+    <p
+      className={`${cn(
+        NunitoUiDisplay.variable,
+        NunitoUiDisplay.className
+      )} text-[#696D6B] text-[12px] lg:text-[14px] tracking-[1%] font-[500] ${className}`}
+    >
+      {children}
+    </p>
+  );
+};
