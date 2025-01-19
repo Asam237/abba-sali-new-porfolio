@@ -47,7 +47,7 @@ const About = ({ className, ...props }: AboutProps) => {
             problem.
           </h4>
           <ParagraphBody className="pt-[10px] sm:pt-[20px] lg:pt-[30px] xl:pt-[40px] text-[14px] sm:text-[20px] xl:text-[24px] text-[#696D6B] leading-[20px] lg:leading-[36px] font-[400]">
-            Albert Einstein
+            Albert Einstein 🤓
           </ParagraphBody>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import Aside from "@/components/Aside";
 import Experiences from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -8,6 +9,7 @@ import DefaultLayout from "@/layouts/default.layout";
 const Home = () => {
   return (
     <div className="bg-primary">
+      <Aside />
       <DefaultLayout className="py-[111px]">
         <div className="container mx-auto">
           <Header />
