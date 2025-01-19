@@ -13,7 +13,7 @@ const About = ({ className, ...props }: AboutProps) => {
       <div className="my-[10px] sm:my-[20px] lg:my-[30px] xl:my-[40px] gap-[10px] xl:gap-[40px] pb-[10px] xl:pb-[40px]">
         <div className="pt-[10px] sm:pt-[20px] lg:pt-[30px] xl:pt-[40px]">
           <ParagraphBody>
-            Hi, I'm Abba Sali. <br />
+            Hi, I&apos;m Abba Sali. <br />
             A Software developer & UI/UX designer focused <br />
             on developing software for people.
           </ParagraphBody>
