@@ -1,5 +1,6 @@
 import { SkylarSansBoldUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
+import { animate, delay, motion } from "framer-motion";
 
 const Header = () => {
   const fontClass = cn(
@@ -13,9 +14,31 @@ const Header = () => {
       {text}
     </h3>
   );
+
+  const textAnimation = {
+    initial: {
+      opacity: 0,
+      scale: 0.5,
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+    },
+    transition: {
+      duration: 0.8,
+      delay: 0.5,
+      ease: [0, 0.71, 0.2, 1.01],
+    },
+  };
   return (
     <header id="/">
-      <div className="xl:h-[732px] max-w-[960px]">
+      <motion.div
+        variants={textAnimation}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="xl:h-[732px] max-w-[960px]"
+      >
         <div className="xl:h-[252px] xl:gap-[10px]">
           <h4
             className={`${cn(
@@ -30,7 +53,7 @@ const Header = () => {
           {renderHeaderText("Software")}
           {renderHeaderText("engineer")}
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 };
