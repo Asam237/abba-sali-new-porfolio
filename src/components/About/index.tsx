@@ -3,78 +3,91 @@ import { ParagraphBody, TitleSection } from "../Common";
 import QuotePic from "../../../public/pictures/quotes.png";
 import cn from "clsx";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface AboutProps extends React.HTMLAttributes<HTMLElement> {}
 
 const About = ({ className, ...props }: AboutProps) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   const bodyAnimation = {
-    initial: {
+    hidden: {
       opacity: 0,
       scale: 0.5,
+      y: 20,
     },
-    animate: {
+    visible: {
       opacity: 1,
       scale: 1,
-    },
-    transition: {
-      duration: 0.8,
-      delay: 0.5,
-      ease: [0, 0.71, 0.2, 1.01],
+      y: 0,
     },
   };
+
   return (
-    <div {...props} className={className} id="about">
+    <section
+      {...props}
+      className={cn("relative", className)}
+      id="about"
+      ref={ref}
+    >
       <motion.div
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        exit="hidden"
         variants={bodyAnimation}
-        initial="initial"
-        animate="animate"
-        exit="exit"
+        transition={{
+          duration: 0.8,
+          delay: 0.3,
+          ease: [0.16, 1, 0.3, 1],
+        }}
       >
         <TitleSection title="About" />
-        <div className="my-[10px] sm:my-[20px] lg:my-[30px] xl:my-[40px] gap-[10px] xl:gap-[40px] pb-[10px] xl:pb-[40px]">
-          <div className="pt-[10px] sm:pt-[20px] lg:pt-[30px] xl:pt-[40px]">
+        <div className="my-4 sm:my-5 lg:my-7 xl:my-10 gap-2 xl:gap-10 pb-2 xl:pb-10">
+          <div className="pt-2 sm:pt-5 lg:pt-7 xl:pt-10">
             <ParagraphBody>
               Hi, I&apos;m Abba Sali. <br />
               A Software developer & UI/UX designer focused <br />
               on developing software for people.
             </ParagraphBody>
           </div>
-          <div className="pt-[40px]">
+          <div className="pt-10">
             <ParagraphBody>
               I love architecting software and developing elegant
               <br />
-              solutions to complex problems
+              solutions to complex problems.
             </ParagraphBody>
           </div>
-          <div className="pt-[10px] sm:pt-[16px] lg:pt-[20px] xl:pt-[40px]">
+          <div className="pt-2 sm:pt-4 lg:pt-5 xl:pt-10">
             <div className="hidden xl:flex relative">
               <div className="absolute top-[100px] left-[-150px]">
                 <Image
-                  alt="pic"
+                  alt="Quote illustration"
                   src={QuotePic}
-                  className="h-[79.6px] w-[113.72px]"
+                  width={114}
+                  height={80}
                 />
               </div>
             </div>
             <h4
-              className={`${cn(
+              className={cn(
                 SkylarSansBoldUiDisplay.variable,
-                SkylarSansBoldUiDisplay.className
-              )} text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[64px] font-[300] leading-[36px] sm:leading-[40px] lg:leading-[50px] xl:leading-[70.4px] text-[#181F1C] mt-[30px] sm:pt-[40px] lg:pt-[70px] xl:mt-[128px]`}
+                SkylarSansBoldUiDisplay.className,
+                "text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[64px] font-[300] leading-[36px] sm:leading-[40px] lg:leading-[50px] xl:leading-[70.4px] text-[#181F1C] mt-7 sm:pt-10 lg:pt-16 xl:mt-32"
+              )}
             >
-              A problem without a<br />
-              solution is a poorly stated
-              <br />
+              A problem without a <br />
+              solution is a poorly stated <br />
               problem.
             </h4>
-            <ParagraphBody className="pt-[10px] sm:pt-[20px] lg:pt-[30px] xl:pt-[40px] text-[14px] sm:text-[20px] xl:text-[24px] text-[#696D6B] leading-[20px] lg:leading-[36px] font-[400]">
+            <ParagraphBody className="pt-2 sm:pt-5 lg:pt-7 xl:pt-10 text-[14px] sm:text-[20px] xl:text-[24px] text-[#696D6B] leading-[20px] lg:leading-[36px] font-[400]">
               Albert Einstein 🤓
             </ParagraphBody>
           </div>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 
