@@ -5,25 +5,13 @@ import cn from "clsx";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { bodyAnimation } from "@/utils/anims";
 
 interface AboutProps extends React.HTMLAttributes<HTMLElement> {}
 
 const About = ({ className, ...props }: AboutProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  const bodyAnimation = {
-    hidden: {
-      opacity: 0,
-      scale: 0.5,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-    },
-  };
 
   return (
     <section

@@ -1,4 +1,8 @@
+import { useRef } from "react";
 import { ParagraphBody, TitleSection } from "../Common";
+import cn from "clsx";
+import { motion, useInView } from "framer-motion";
+import { bodyAnimation } from "@/utils/anims";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -19,15 +23,32 @@ const skrills: string[] = [
 ];
 
 const Skills = ({ className, ...props }: SkillsProps) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
-    <section {...props} className={className} id="skrills">
-      <TitleSection title="skrills" />
-      <div className="mt-[40px]">
-        {skrills.map((item, index) => (
-          <ParagraphBody key={index}>{item}</ParagraphBody>
-        ))}
-      </div>
-    </section>
+    <motion.div
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      exit="hidden"
+      variants={bodyAnimation}
+      transition={{
+        duration: 0.8,
+        delay: 0.3,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className={cn("relative", className)}
+      id="skrills"
+      ref={ref}
+    >
+      <section {...props}>
+        <TitleSection title="skrills" />
+        <div className="mt-[40px]">
+          {skrills.map((item, index) => (
+            <ParagraphBody key={index}>{item}</ParagraphBody>
+          ))}
+        </div>
+      </section>
+    </motion.div>
   );
 };
 
