@@ -1,4 +1,4 @@
-import { FaBars, FaClosedCaptioning, FaWindowClose } from "react-icons/fa";
+import { FaBars, FaWindowClose } from "react-icons/fa";
 import cn from "clsx";
 import { NunitoUiDisplay, SkylarSansBoldUiDisplay } from "@/lib/fonts";
 import Link from "next/link";
