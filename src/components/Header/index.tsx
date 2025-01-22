@@ -89,7 +89,9 @@ const Header = () => {
               <FaWhatsapp size={30} className="text-[#181F1C]" />
             </Link>
           </div>
-          <button
+          <Link
+            href="https://drive.google.com/file/d/1jwXSy7uFHpWwU8HRuNSaWDIwv55Sc8wb/view?usp=drive_link"
+            target="_blank"
             className={`${cn(
               NunitoUiDisplay.variable,
               NunitoUiDisplay.className
@@ -98,7 +100,7 @@ const Header = () => {
           `}
           >
             Downlaod CV
-          </button>
+          </Link>
         </div>
       </motion.div>
     </header>
