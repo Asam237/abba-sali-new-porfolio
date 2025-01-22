@@ -1,6 +1,8 @@
-import { SkylarSansBoldUiDisplay } from "@/lib/fonts";
+import { NunitoUiDisplay, SkylarSansBoldUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
-import { animate, delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
   const fontClass = cn(
@@ -54,6 +56,49 @@ const Header = () => {
         <div className="xl:h-[240px] xl:gap-[10px]">
           {renderHeaderText("Software")}
           {renderHeaderText("engineer")}
+        </div>
+      </motion.div>
+      {/* Social network */}
+      <motion.div
+        variants={textAnimation}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <div className="flex space-x-4 items-center mt-[40px] justify-center md:justify-start">
+          <div className="flex space-x-3 items-center">
+            <Link
+              href={"https://www.linkedin.com/in/abba-sali-aboubakar-mamate/"}
+              target="_blank"
+              className="transition-transform transform hover:scale-110"
+            >
+              <FaLinkedin size={30} className="text-[#181F1C]" />
+            </Link>
+            <Link
+              href={"https://github.com/Asam237"}
+              target="_blank"
+              className="transition-transform transform hover:scale-110"
+            >
+              <FaGithub size={30} className="text-[#181F1C]" />
+            </Link>
+            <Link
+              href="https://wa.me/691846922?text=Hello!"
+              target="_blank"
+              className="transition-transform transform hover:scale-110"
+            >
+              <FaWhatsapp size={30} className="text-[#181F1C]" />
+            </Link>
+          </div>
+          <button
+            className={`${cn(
+              NunitoUiDisplay.variable,
+              NunitoUiDisplay.className
+            )} text-[#181F1C] text-[12px] sm:text-[14px] lg:text-[16px] tracking-[1%] font-[600] border-[2px] rounded-xl border-[#181F1C] px-2 py-0.5
+          transition-transform transform hover:scale-110
+          `}
+          >
+            Downlaod CV
+          </button>
         </div>
       </motion.div>
     </header>

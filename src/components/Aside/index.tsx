@@ -109,18 +109,18 @@ const Aside = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed left-0 top-0 w-full h-screen bg-primaryTitle z-50"
+            className="fixed left-0 top-0 w-full h-screen bg-[#181F1C] z-50"
           >
-            <div className="flex justify-start items-center absolute top-[58px] right-0 bg-primaryTitle left-[20px]">
+            <div className="flex justify-start items-center absolute top-[58px] right-0 bg-[#181F1C] left-[20px]">
               <button
-                className="flex xl:hidden cursor-pointer bg-primaryTitle"
+                className="flex xl:hidden cursor-pointer bg-[#181F1C]"
                 onClick={toggleMenu}
                 aria-label={isOpen ? "Close menu" : "Open menu"}
               >
                 {isOpen ? (
                   <FaWindowClose
                     size={26}
-                    className="bg-primaryTitle text-primary"
+                    className="bg-[#181F1C] text-primary"
                   />
                 ) : (
                   <FaBars size={26} />
@@ -131,7 +131,7 @@ const Aside = () => {
                 className={`${cn(
                   NunitoUiDisplay.variable,
                   NunitoUiDisplay.className
-                )} text-primary text-[16px] leading-[21.82px] font-[600] tracking-[1%] pl-4 lg:pl-0 relative group bg-primaryTitle`}
+                )} text-primary text-[16px] leading-[21.82px] font-[600] tracking-[1%] pl-4 lg:pl-0 relative group bg-[#181F1C]`}
               >
                 Abba Sali
                 <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
@@ -139,7 +139,7 @@ const Aside = () => {
             </div>
 
             <div>
-              <ul className="flex flex-col space-y-[6px] mt-52 bg-primaryTitle">
+              <ul className="flex flex-col space-y-[6px] mt-52 bg-[#181F1C]">
                 {navs.map((item, index) => (
                   <Link
                     href={item.path}
@@ -148,7 +148,7 @@ const Aside = () => {
                     className={`${cn(
                       SkylarSansBoldUiDisplay.variable,
                       SkylarSansBoldUiDisplay.className
-                    )} font-[600] inline-block bg-primaryTitle text-primary text-center uppercase text-2xl`}
+                    )} font-[600] inline-block bg-[#181F1C] text-primary text-center uppercase text-2xl`}
                   >
                     {item.name}
                   </Link>
