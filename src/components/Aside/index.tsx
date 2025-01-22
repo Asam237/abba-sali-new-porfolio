@@ -66,7 +66,7 @@ const Aside = () => {
         <div className="flex flex-col">
           <div className="flex justify-start items-center">
             <button
-              className="flex xl:hidden cursor-pointer"
+              className="flex xl:hidden cursor-pointer sm:pr-4"
               onClick={toggleMenu}
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
