@@ -65,7 +65,7 @@ const Header = () => {
         animate="animate"
         exit="exit"
       >
-        <div className="flex space-x-4 items-center mt-[40px] justify-center md:justify-start">
+        <div className="flex space-x-4 items-center mt-[40px] justify-start">
           <div className="flex space-x-3 items-center">
             <Link
               href={"https://www.linkedin.com/in/abba-sali-aboubakar-mamate/"}
