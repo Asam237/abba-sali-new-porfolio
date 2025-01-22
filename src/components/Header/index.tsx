@@ -2,7 +2,7 @@ import { NunitoUiDisplay, SkylarSansBoldUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaPhone, FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
   const fontClass = cn(
@@ -96,10 +96,11 @@ const Header = () => {
               NunitoUiDisplay.variable,
               NunitoUiDisplay.className
             )} text-[#181F1C] text-[12px] sm:text-[14px] lg:text-[16px] tracking-[1%] font-[600] border-[2px] rounded-xl border-[#181F1C] px-2 py-0.5
-          transition-transform transform hover:scale-110
+          transition-transform transform hover:scale-110 flex items-center
           `}
           >
-            Downlaod CV
+            <FaPhone className="pr-2" size={25} />
+            Book a call
           </Link>
         </div>
       </motion.div>
