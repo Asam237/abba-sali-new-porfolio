@@ -82,7 +82,7 @@ const Header = () => {
               <FaGithub size={30} className="text-[#181F1C]" />
             </Link>
             <Link
-              href="https://wa.me/691846922?text=Hello!"
+              href="https://wa.me/+237691846922?text=Hello!"
               target="_blank"
               className="transition-transform transform hover:scale-110"
             >
