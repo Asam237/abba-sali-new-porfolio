@@ -113,7 +113,7 @@ const Aside = () => {
           >
             <div className="flex justify-start items-center absolute top-[58px] right-0 bg-[#181F1C] left-[20px]">
               <button
-                className="flex xl:hidden cursor-pointer bg-[#181F1C]"
+                className="flex xl:hidden cursor-pointer bg-[#181F1C] pr-4"
                 onClick={toggleMenu}
                 aria-label={isOpen ? "Close menu" : "Open menu"}
               >
