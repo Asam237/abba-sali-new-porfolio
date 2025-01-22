@@ -1,4 +1,4 @@
-import { FaBars, FaClosedCaptioning } from "react-icons/fa";
+import { FaBars, FaClosedCaptioning, FaWindowClose } from "react-icons/fa";
 import cn from "clsx";
 import { NunitoUiDisplay, SkylarSansBoldUiDisplay } from "@/lib/fonts";
 import Link from "next/link";
@@ -70,7 +70,7 @@ const Aside = () => {
               onClick={toggleMenu}
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
-              {isOpen ? <FaClosedCaptioning size={24} /> : <FaBars size={24} />}
+              {isOpen ? <FaWindowClose size={24} /> : <FaBars size={24} />}
             </button>
             <Link
               href={"/"}
@@ -109,35 +109,41 @@ const Aside = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed left-0 top-0 w-full h-screen bg-primaryTitle"
+            className="fixed left-0 top-0 w-full h-screen bg-primaryTitle z-50"
           >
-            <div className="bg-primaryTitle flex justify-between p-4 items-center">
+            <div className="flex justify-start items-center absolute top-[58px] right-0 bg-primaryTitle left-[20px]">
+              <button
+                className="flex xl:hidden cursor-pointer bg-primaryTitle"
+                onClick={toggleMenu}
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+              >
+                {isOpen ? (
+                  <FaWindowClose
+                    size={26}
+                    className="bg-primaryTitle text-primary"
+                  />
+                ) : (
+                  <FaBars size={26} />
+                )}
+              </button>
               <Link
                 href={"/"}
                 className={`${cn(
                   NunitoUiDisplay.variable,
                   NunitoUiDisplay.className
-                )} text-primary bg-primaryTitle text-[16px] leading-[21.82px] font-[600] tracking-[1%]`}
+                )} text-primary text-[16px] leading-[21.82px] font-[600] tracking-[1%] pl-4 lg:pl-0 relative group bg-primaryTitle`}
               >
                 Abba Sali
+                <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <button
-                className="flex xl:hidden cursor-pointer"
-                onClick={toggleMenu}
-                aria-label={isOpen ? "Close menu" : "Open menu"}
-              >
-                {isOpen ? (
-                  <FaClosedCaptioning size={24} />
-                ) : (
-                  <FaBars size={24} />
-                )}
-              </button>
             </div>
+
             <div>
               <ul className="flex flex-col space-y-[6px] mt-52 bg-primaryTitle">
                 {navs.map((item, index) => (
                   <Link
                     href={item.path}
+                    onClick={() => setIsOpen(false)}
                     key={index}
                     className={`${cn(
                       SkylarSansBoldUiDisplay.variable,
