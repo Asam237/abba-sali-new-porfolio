@@ -3,6 +3,7 @@ import Aside from "@/components/Aside";
 import Experiences from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Project from "@/components/Project";
 import Skills from "@/components/Skills";
 import DefaultLayout from "@/layouts/default.layout";
 import { useEffect, useState } from "react";
@@ -38,6 +39,7 @@ const Home = () => {
         <div className="container mx-auto">
           <Header />
           <About className="mt-[40px] sm:mt-[60px] lg:mt-[120px] xl:mt-[165px] mb-[40px]" />
+          <Project />
           <Skills className="mt-[40px]" />
           <Experiences className="mt-[40px]" />
         </div>

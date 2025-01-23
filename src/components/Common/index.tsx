@@ -1,9 +1,18 @@
 import { NunitoUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
+import Link from "next/link";
 import { ReactNode } from "react";
+import { FaArrowRight, FaGithub, FaLink } from "react-icons/fa";
 
 type TitleSectionProps = {
   title: string;
+};
+
+type CardProps = {
+  title: string;
+  description: string;
+  link: string;
+  github: string;
 };
 
 interface ParagraphBodyProps extends React.HTMLAttributes<HTMLDListElement> {
@@ -51,5 +60,32 @@ export const ParagraphContent = ({
     >
       {children}
     </p>
+  );
+};
+
+export const ProjectCard = ({
+  description,
+  title,
+  link,
+  github,
+}: CardProps) => {
+  return (
+    <div className="border-[1.5px] border-[#8b928f] rounded-3xl p-4 transition-transform transform hover:scale-110">
+      <ParagraphBody>{title}</ParagraphBody>
+      <ParagraphContent className="text-gray-700">
+        {description}
+      </ParagraphContent>
+      <div className="flex justify-between items-center mt-4">
+        <Link href={github} className="flex justify-center space-x-1.5">
+          <FaGithub size={18} />
+          <ParagraphContent className="text-gray-700 font-[600]">
+            Github
+          </ParagraphContent>
+        </Link>
+        <Link href={link} className={`${link === github ? "hidden" : "flex"}`}>
+          <FaLink size={16} />
+        </Link>
+      </div>
+    </div>
   );
 };

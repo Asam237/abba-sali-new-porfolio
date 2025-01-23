@@ -89,7 +89,7 @@ const Header = () => {
               <FaWhatsapp size={30} className="text-[#181F1C]" />
             </Link>
           </div>
-          <Link
+          {/* <Link
             href="https://drive.google.com/file/d/1jwXSy7uFHpWwU8HRuNSaWDIwv55Sc8wb/view?usp=drive_link"
             target="_blank"
             className={`${cn(
@@ -100,8 +100,8 @@ const Header = () => {
           `}
           >
             <FaPhone className="pr-2" size={25} />
-            Book a call
-          </Link>
+            Download a CV
+          </Link> */}
         </div>
       </motion.div>
     </header>

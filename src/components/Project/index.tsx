@@ -1,0 +1,87 @@
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import cn from "clsx";
+import { bodyAnimation } from "@/utils/anims";
+import { ParagraphBody, ProjectCard, TitleSection } from "../Common";
+import Link from "next/link";
+import { NunitoUiDisplay } from "@/lib/fonts";
+import { FaArrowRight } from "react-icons/fa";
+
+const datas = [
+  {
+    title: "Prayer Connect",
+    description: "Web application dedicated to Islamic prayer times",
+    link: "https://prayer-times.abbasali.cm",
+    github: "https://tempo-tracker.abbasali.cm/",
+  },
+  {
+    title: "Tempo Tracker",
+    description:
+      "Weather application using the OpenWeatherMap API, allowing to visualize weather conditions with integrated mapping features.",
+    link: "https://tempo-tracker.abbasali.cm/",
+    github: "https://github.com/Asam237/tempo-tracker",
+  },
+  {
+    title: "E-Commerce API",
+    description:
+      "This project contains a minimal start-up for a Node.js e-commerce project using Typescript, ESLint and Prettier.",
+    link: "https://github.com/Asam237/e-commerce-api",
+    github: "https://github.com/Asam237/e-commerce-api",
+  },
+];
+
+interface ProjectProps extends React.HTMLAttributes<HTMLElement> {}
+
+const Project = ({ className, ...props }: ProjectProps) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  return (
+    <motion.div
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      exit="hidden"
+      variants={bodyAnimation}
+      transition={{
+        duration: 0.8,
+        delay: 0.3,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className={cn("relative", className)}
+      id="projects"
+      ref={ref}
+    >
+      <section {...props}>
+        <TitleSection title="Projects" />
+        <div className="mt-[40px] flex flex-col gap-y-4">
+          {datas.map((item, index) => (
+            <ProjectCard
+              link={item.link}
+              title={item.title}
+              github={item.github}
+              description={item.description}
+            />
+          ))}
+        </div>
+        <div className="flex items-center space-x-2 mt-[10px] sm:mt-[15px] px-2">
+          <Link
+            href={"https://github.com/Asam237"}
+            className="flex items-center space-x-2 transition-transform transform hover:scale-110"
+          >
+            <ParagraphBody
+              className={`${cn(
+                NunitoUiDisplay.variable,
+                NunitoUiDisplay.className
+              )} text-[#181F1C] text-[12px] sm:text-[14px] lg:text-[20px] tracking-[1%] lg:leading-[44.8px] font-[500] relative group`}
+            >
+              View All Projects
+              <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
+            </ParagraphBody>
+            <FaArrowRight />
+          </Link>
+        </div>
+      </section>
+    </motion.div>
+  );
+};
+
+export default Project;
