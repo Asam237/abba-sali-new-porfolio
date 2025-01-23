@@ -100,7 +100,7 @@ const Header = () => {
           `}
           >
             <FaPhone className="pr-2" size={25} />
-            Book a call
+            Download a CV
           </Link> */}
         </div>
       </motion.div>
