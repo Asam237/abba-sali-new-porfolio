@@ -63,7 +63,7 @@ const Project = ({ className, ...props }: ProjectProps) => {
             />
           ))}
         </div>
-        <div className="flex items-center space-x-2 mt-[10px] sm:mt-[15px] px-2">
+        <div className="flex items-center space-x-2 mt-[10px] sm:mt-[15px] lg:mt-[18px] px-2">
           <Link
             href={"https://github.com/Asam237"}
             className="flex items-center space-x-2 transition-transform transform hover:scale-110"
@@ -72,7 +72,7 @@ const Project = ({ className, ...props }: ProjectProps) => {
               className={`${cn(
                 NunitoUiDisplay.variable,
                 NunitoUiDisplay.className
-              )} text-[#181F1C] text-[12px] sm:text-[14px] lg:text-[20px] tracking-[1%] lg:leading-[44.8px] font-[500] relative group`}
+              )} text-[#181F1C] text-[12px] sm:text-[13px] lg:text-[19px] tracking-[1%] lg:leading-[44.8px] font-[500] relative group`}
             >
               View All Projects
               <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
