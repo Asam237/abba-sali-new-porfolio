@@ -53,8 +53,9 @@ const Project = ({ className, ...props }: ProjectProps) => {
       <section {...props}>
         <TitleSection title="Projects" />
         <div className="mt-[40px] flex flex-col gap-y-4">
-          {datas.map((item, index) => (
+          {datas.map((item) => (
             <ProjectCard
+              key={item.title}
               link={item.link}
               title={item.title}
               github={item.github}
