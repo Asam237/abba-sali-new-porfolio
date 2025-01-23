@@ -16,16 +16,16 @@ const navs: NavType[] = [
     path: "/#about",
   },
   {
+    name: "Projects",
+    path: "/#projects",
+  },
+  {
     name: "Skrills",
     path: "/#skrills",
   },
   {
     name: "Experiences",
     path: "/#experiences",
-  },
-  {
-    name: "Educations",
-    path: "/#educations",
   },
   {
     name: "Selected projects",
