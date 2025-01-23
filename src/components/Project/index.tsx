@@ -32,7 +32,7 @@ const datas = [
 
 interface ProjectProps extends React.HTMLAttributes<HTMLElement> {}
 
-const Project = ({ className, ...props }: ProjectProps) => {
+const Project = ({ className }: ProjectProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
@@ -50,12 +50,12 @@ const Project = ({ className, ...props }: ProjectProps) => {
       id="projects"
       ref={ref}
     >
-      <section {...props}>
+      <section>
         <TitleSection title="Projects" />
         <div className="mt-[40px] flex flex-col gap-y-4">
-          {datas.map((item) => (
+          {datas.map((item, index) => (
             <ProjectCard
-              key={item.title}
+              key={index}
               link={item.link}
               title={item.title}
               github={item.github}
