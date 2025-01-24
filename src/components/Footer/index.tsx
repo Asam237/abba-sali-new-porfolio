@@ -4,7 +4,7 @@ import SlideUp from "@/Animations/SlideUp";
 
 const Footer = () => {
   return (
-    <SlideUp delay={0.2}>
+    <SlideUp delay={0.3}>
       <Image
         alt="pic"
         src={ABBASALI}

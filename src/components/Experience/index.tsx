@@ -34,7 +34,7 @@ const experiences: ExperienceType[] = [
 
 const Experiences = ({ className, ...props }: SkillsProps) => {
   return (
-    <SlideUp id="experiences" delay={0.2}>
+    <SlideUp id="experiences" delay={0.3}>
       <section {...props} className={className}>
         <TitleSection title="experience" />
         <div className="mt-[40px]">

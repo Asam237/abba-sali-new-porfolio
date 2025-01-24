@@ -23,7 +23,7 @@ const skrills: string[] = [
 
 const Skills = ({ className, ...props }: SkillsProps) => {
   return (
-    <SlideUp className={cn("relative", className)} id="skrills" delay={0.2}>
+    <SlideUp className={cn("relative", className)} id="skrills" delay={0.3}>
       <section {...props}>
         <TitleSection title="skrills" />
         <div className="mt-[40px]">

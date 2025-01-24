@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header id="/">
-      <SlideUp className="xl:h-[732px] max-w-[960px]" delay={0.1}>
+      <SlideUp className="xl:h-[732px] max-w-[960px]" delay={0.3}>
         <div className="xl:h-[252px] xl:gap-[10px]">
           <h4
             className={`${cn(

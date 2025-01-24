@@ -32,7 +32,7 @@ interface ProjectProps extends React.HTMLAttributes<HTMLElement> {}
 
 const Project = ({ className }: ProjectProps) => {
   return (
-    <SlideUp className={cn("relative", className)} id="projects" delay={0.2}>
+    <SlideUp className={cn("relative", className)} id="projects" delay={0.3}>
       <section>
         <TitleSection title="Projects" />
         <div className="mt-[40px] flex flex-col gap-y-4">

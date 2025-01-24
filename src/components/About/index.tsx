@@ -10,7 +10,7 @@ interface AboutProps extends React.HTMLAttributes<HTMLElement> {}
 const About = ({ className, ...props }: AboutProps) => {
   return (
     <div id="about">
-      <SlideUp delay={0.2}>
+      <SlideUp delay={0.3}>
         <TitleSection title="About" />
         <div className="my-4 sm:my-5 lg:my-7 xl:my-10 gap-2 xl:gap-10 pb-2 xl:pb-10">
           <div className="pt-2 sm:pt-5 lg:pt-7 xl:pt-10">
