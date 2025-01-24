@@ -3,25 +3,14 @@ import { ParagraphBody, TitleSection } from "../Common";
 import QuotePic from "../../../public/pictures/quotes.png";
 import cn from "clsx";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { bodyAnimation } from "@/utils/anims";
 import SlideUp from "@/Animations/SlideUp";
 
 interface AboutProps extends React.HTMLAttributes<HTMLElement> {}
 
 const About = ({ className, ...props }: AboutProps) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
-    <section
-      {...props}
-      className={cn("relative", className)}
-      id="about"
-      ref={ref}
-    >
-      <SlideUp>
+    <>
+      <SlideUp delay={0.2}>
         <TitleSection title="About" />
         <div className="my-4 sm:my-5 lg:my-7 xl:my-10 gap-2 xl:gap-10 pb-2 xl:pb-10">
           <div className="pt-2 sm:pt-5 lg:pt-7 xl:pt-10">
@@ -38,35 +27,37 @@ const About = ({ className, ...props }: AboutProps) => {
               solutions to complex problems.
             </ParagraphBody>
           </div>
-          <div className="pt-2 sm:pt-4 lg:pt-5 xl:pt-10">
-            <div className="hidden xl:flex relative">
-              <div className="absolute top-[100px] left-[-150px]">
-                <Image
-                  alt="Quote illustration"
-                  src={QuotePic}
-                  width={114}
-                  height={80}
-                />
-              </div>
-            </div>
-            <h4
-              className={cn(
-                SkylarSansBoldUiDisplay.variable,
-                SkylarSansBoldUiDisplay.className,
-                "text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[64px] font-[300] leading-[36px] sm:leading-[40px] lg:leading-[50px] xl:leading-[70.4px] text-[#181F1C] mt-7 sm:pt-10 lg:pt-16 xl:mt-32"
-              )}
-            >
-              A problem without a <br />
-              solution is a poorly stated <br />
-              problem.
-            </h4>
-            <ParagraphBody className="pt-2 sm:pt-5 lg:pt-7 xl:pt-10 text-[14px] sm:text-[20px] xl:text-[24px] text-[#696D6B] leading-[20px] lg:leading-[36px] font-[400]">
-              Albert Einstein 🤓
-            </ParagraphBody>
-          </div>
         </div>
       </SlideUp>
-    </section>
+      <SlideUp delay={0.2}>
+        <div className="pt-2 sm:pt-4 lg:pt-5 xl:pt-10">
+          <div className="hidden xl:flex relative">
+            <div className="absolute top-[100px] left-[-150px]">
+              <Image
+                alt="Quote illustration"
+                src={QuotePic}
+                width={114}
+                height={80}
+              />
+            </div>
+          </div>
+          <h4
+            className={cn(
+              SkylarSansBoldUiDisplay.variable,
+              SkylarSansBoldUiDisplay.className,
+              "text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[64px] font-[300] leading-[36px] sm:leading-[40px] lg:leading-[50px] xl:leading-[70.4px] text-[#181F1C] mt-7 sm:pt-10 lg:pt-16 xl:mt-32"
+            )}
+          >
+            A problem without a <br />
+            solution is a poorly stated <br />
+            problem.
+          </h4>
+          <ParagraphBody className="pt-2 sm:pt-5 lg:pt-7 xl:pt-10 text-[14px] sm:text-[20px] xl:text-[24px] text-[#696D6B] leading-[20px] lg:leading-[36px] font-[400]">
+            Albert Einstein 🤓
+          </ParagraphBody>
+        </div>
+      </SlideUp>
+    </>
   );
 };
 

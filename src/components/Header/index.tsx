@@ -1,9 +1,8 @@
 import SlideUp from "@/Animations/SlideUp";
-import { NunitoUiDisplay, SkylarSansBoldUiDisplay } from "@/lib/fonts";
+import { SkylarSansBoldUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaPhone, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
   const fontClass = cn(
@@ -18,26 +17,9 @@ const Header = () => {
     </h3>
   );
 
-  const textAnimation = {
-    initial: {
-      opacity: 0,
-      scale: 0.5,
-      y: 20,
-    },
-    animate: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-    },
-    transition: {
-      duration: 0.8,
-      delay: 0.3,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  };
   return (
     <header id="/">
-      <SlideUp className="xl:h-[732px] max-w-[960px]">
+      <SlideUp className="xl:h-[732px] max-w-[960px]" delay={0.1}>
         <div className="xl:h-[252px] xl:gap-[10px]">
           <h4
             className={`${cn(
