@@ -36,7 +36,7 @@ const Header = () => {
         </div>
       </SlideUp>
       {/* Social network */}
-      <SlideUp>
+      <SlideUp delay={0.3}>
         <div className="flex space-x-4 items-center mt-[40px] justify-start">
           <div className="flex space-x-3 items-center">
             <Link
