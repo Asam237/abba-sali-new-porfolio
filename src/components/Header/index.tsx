@@ -1,3 +1,4 @@
+import SlideUp from "@/Animations/SlideUp";
 import { NunitoUiDisplay, SkylarSansBoldUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
 import { motion } from "framer-motion";
@@ -36,13 +37,7 @@ const Header = () => {
   };
   return (
     <header id="/">
-      <motion.div
-        variants={textAnimation}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        className="xl:h-[732px] max-w-[960px]"
-      >
+      <SlideUp className="xl:h-[732px] max-w-[960px]">
         <div className="xl:h-[252px] xl:gap-[10px]">
           <h4
             className={`${cn(
@@ -57,14 +52,9 @@ const Header = () => {
           {renderHeaderText("Software")}
           {renderHeaderText("engineer")}
         </div>
-      </motion.div>
+      </SlideUp>
       {/* Social network */}
-      <motion.div
-        variants={textAnimation}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
+      <SlideUp>
         <div className="flex space-x-4 items-center mt-[40px] justify-start">
           <div className="flex space-x-3 items-center">
             <Link
@@ -103,7 +93,7 @@ const Header = () => {
             Download a CV
           </Link> */}
         </div>
-      </motion.div>
+      </SlideUp>
     </header>
   );
 };

@@ -1,8 +1,7 @@
 import { useRef } from "react";
 import { ParagraphBody, ParagraphContent, TitleSection } from "../Common";
 import { useInView } from "framer-motion";
-import { bodyAnimation } from "@/utils/anims";
-import { motion } from "framer-motion";
+import SlideUp from "@/Animations/SlideUp";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -39,19 +38,7 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
-    <motion.div
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      exit="hidden"
-      variants={bodyAnimation}
-      transition={{
-        duration: 0.8,
-        delay: 0.3,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      id="experiences"
-      ref={ref}
-    >
+    <SlideUp id="experiences">
       <section {...props} className={className}>
         <TitleSection title="experience" />
         <div className="mt-[40px]">
@@ -63,7 +50,7 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
           ))}
         </div>
       </section>
-    </motion.div>
+    </SlideUp>
   );
 };
 

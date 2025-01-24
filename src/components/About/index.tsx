@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { bodyAnimation } from "@/utils/anims";
+import SlideUp from "@/Animations/SlideUp";
 
 interface AboutProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -20,17 +21,7 @@ const About = ({ className, ...props }: AboutProps) => {
       id="about"
       ref={ref}
     >
-      <motion.div
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        exit="hidden"
-        variants={bodyAnimation}
-        transition={{
-          duration: 0.8,
-          delay: 0.3,
-          ease: [0.16, 1, 0.3, 1],
-        }}
-      >
+      <SlideUp>
         <TitleSection title="About" />
         <div className="my-4 sm:my-5 lg:my-7 xl:my-10 gap-2 xl:gap-10 pb-2 xl:pb-10">
           <div className="pt-2 sm:pt-5 lg:pt-7 xl:pt-10">
@@ -74,7 +65,7 @@ const About = ({ className, ...props }: AboutProps) => {
             </ParagraphBody>
           </div>
         </div>
-      </motion.div>
+      </SlideUp>
     </section>
   );
 };

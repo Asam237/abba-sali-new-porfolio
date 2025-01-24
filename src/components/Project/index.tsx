@@ -1,11 +1,9 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 import cn from "clsx";
-import { bodyAnimation } from "@/utils/anims";
 import { ParagraphBody, ProjectCard, TitleSection } from "../Common";
 import Link from "next/link";
 import { NunitoUiDisplay } from "@/lib/fonts";
 import { FaArrowRight } from "react-icons/fa";
+import SlideUp from "@/Animations/SlideUp";
 
 const datas = [
   {
@@ -33,23 +31,8 @@ const datas = [
 interface ProjectProps extends React.HTMLAttributes<HTMLElement> {}
 
 const Project = ({ className }: ProjectProps) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
   return (
-    <motion.div
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      exit="hidden"
-      variants={bodyAnimation}
-      transition={{
-        duration: 0.8,
-        delay: 0.3,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className={cn("relative", className)}
-      id="projects"
-      ref={ref}
-    >
+    <SlideUp className={cn("relative", className)} id="projects">
       <section>
         <TitleSection title="Projects" />
         <div className="mt-[40px] flex flex-col gap-y-4">
@@ -81,7 +64,7 @@ const Project = ({ className }: ProjectProps) => {
           </Link>
         </div>
       </section>
-    </motion.div>
+    </SlideUp>
   );
 };
 
