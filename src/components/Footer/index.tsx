@@ -8,7 +8,7 @@ const Footer = () => {
       <Image
         alt="pic"
         src={ABBASALI}
-        className="h-[100px] sm:h-[160px] lg:h-[220px] xl:h-[360px] w-full mx-auto"
+        className="h-[100px] sm:h-[160px] lg:h-[220px] xl:h-[360px] w-full mx-auto z-50"
       />
     </SlideUp>
   );

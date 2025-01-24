@@ -85,7 +85,7 @@ const Aside = () => {
         </div>
       </div>
       <aside className="relative">
-        <div className="absolute left-[20px] lg:left-[44px] top-[58px]">
+        <div className="fixed left-[20px] lg:left-[44px] top-[58px]">
           <SlideRight delay={0.3}>
             <div className="flex flex-col">
               <div className="hidden xl:flex justify-start items-center">
