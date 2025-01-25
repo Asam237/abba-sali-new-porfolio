@@ -11,13 +11,16 @@ import { FaArrowUp } from "react-icons/fa";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  const toggleVisibility = () => {
-    if (window.scrollY > 300) {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY < lastScrollY && currentScrollY > 100) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
+    setLastScrollY(currentScrollY);
   };
 
   const scrollToTop = () => {
@@ -28,13 +31,13 @@ const Home = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <div className="bg-primary">
-      <Aside />
+      <Aside isVisible={isVisible} />
       <DefaultLayout className="py-[111px]">
         <div className="container mx-auto">
           <Header />

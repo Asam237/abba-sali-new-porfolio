@@ -30,7 +30,11 @@ const navs: NavType[] = [
   },
 ];
 
-const Aside = () => {
+type AsideProps = {
+  isVisible?: boolean;
+};
+
+const Aside = ({ isVisible }: AsideProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
@@ -77,7 +81,11 @@ const Aside = () => {
         </div>
       </div>
       <aside className="relative">
-        <div className="absolute left-[20px] lg:left-[44px] top-[58px] z-10">
+        <div
+          className={`${
+            isVisible ? "fixed" : "absolute"
+          } left-[20px] lg:left-[44px] top-[58px] z-10`}
+        >
           <SlideRight delay={0.3}>
             <div className="flex flex-col">
               <div className="hidden xl:flex justify-start items-center">
