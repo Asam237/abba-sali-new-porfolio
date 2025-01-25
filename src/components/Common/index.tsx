@@ -2,7 +2,9 @@ import { NunitoUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { FaArrowRight, FaGithub, FaLink } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { BsArrowUpRightSquare } from "react-icons/bs";
+import Image from "next/image";
 
 type TitleSectionProps = {
   title: string;
@@ -14,6 +16,7 @@ type CardProps = {
   link: string;
   github: string;
   skills: string[];
+  picture: any;
 };
 
 interface ParagraphBodyProps extends React.HTMLAttributes<HTMLDListElement> {
@@ -80,41 +83,59 @@ export const ProjectCard = ({
   link,
   github,
   skills,
+  picture,
 }: CardProps) => {
   return (
-    <div className="border-[1.5px] border-[#8b928f] rounded-3xl p-4 transition-transform transform hover:scale-105">
-      <ParagraphBody>{title}</ParagraphBody>
+    <div>
+      <div className="border-[1.5px] border-[#8b928f] rounded-md p-2">
+        <Link href={link !== github ? link : github} className="relative group">
+          <Image
+            src={picture}
+            alt="picture"
+            className="object-cover rounded-md h-[200px] hover:transition-transform hover:transform hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50 rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
+        </Link>
+      </div>
+      <div className="flex justify-between items-center">
+        <h4
+          className={`${cn(
+            NunitoUiDisplay.variable,
+            NunitoUiDisplay.className
+          )} font-[600] text-[#181F1C] text-[14px] lg:text-[16px] tracking-[1%] mt-4`}
+        >
+          {title}
+        </h4>
+        <div className="flex space-x-2">
+          <Link
+            href={github}
+            className="flex justify-center space-x-1.5 items-center"
+          >
+            <FaGithub
+              size={16}
+              className="hover:transition-transform hover:transform hover:scale-110"
+            />
+          </Link>
+          <Link
+            href={link}
+            className={`flex justify-center items-center space-x-1.5 ${
+              link === github ? "hidden" : "flex"
+            }`}
+          >
+            <BsArrowUpRightSquare
+              size={16}
+              className="hover:transition-transform hover:transform hover:scale-110"
+            />
+          </Link>
+        </div>
+      </div>
       <ParagraphContent className="text-gray-700">
         {description}
       </ParagraphContent>
-      <div className="mt-4 flex space-x-1 flex-wrap">
+      <div className="mt-2 flex gap-1 flex-wrap">
         {skills.map((item, index) => (
           <RoundText key={index}>{item}</RoundText>
         ))}
-      </div>
-      <div className="flex items-center mt-4 space-x-4">
-        <Link
-          href={github}
-          className="flex justify-center space-x-1.5 items-center"
-        >
-          <FaGithub size={14} />
-          <ParagraphContent className="text-gray-700 font-[600] relative group">
-            Github
-            <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-gray-700 transition-all duration-300 group-hover:w-full"></span>
-          </ParagraphContent>
-        </Link>
-        <Link
-          href={link}
-          className={`flex justify-center items-center space-x-1.5 ${
-            link === github ? "hidden" : "flex"
-          }`}
-        >
-          <FaLink size={14} />
-          <ParagraphContent className="text-gray-700 font-[600] relative group">
-            access the site
-            <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-gray-700 transition-all duration-300 group-hover:w-full"></span>
-          </ParagraphContent>
-        </Link>
       </div>
     </div>
   );
