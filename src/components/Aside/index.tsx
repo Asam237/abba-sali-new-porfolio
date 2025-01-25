@@ -17,7 +17,7 @@ const navs: NavType[] = [
     path: "/#about",
   },
   {
-    name: "Projects",
+    name: "Selected projects",
     path: "/#projects",
   },
   {
@@ -27,14 +27,6 @@ const navs: NavType[] = [
   {
     name: "Experiences",
     path: "/#experiences",
-  },
-  {
-    name: "Selected projects",
-    path: "/#selected-projects",
-  },
-  {
-    name: "Contact",
-    path: "/#contact",
   },
 ];
 
