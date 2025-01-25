@@ -81,8 +81,9 @@ export const ProjectCard = ({
           className="flex justify-center space-x-1.5 items-center"
         >
           <FaGithub size={14} />
-          <ParagraphContent className="text-gray-700 font-[600]">
+          <ParagraphContent className="text-gray-700 font-[600] relative group">
             Github
+            <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
           </ParagraphContent>
         </Link>
         <Link
@@ -92,8 +93,9 @@ export const ProjectCard = ({
           }`}
         >
           <FaLink size={14} />
-          <ParagraphContent className="text-gray-700 font-[600]">
+          <ParagraphContent className="text-gray-700 font-[600] relative group">
             access the site
+            <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
           </ParagraphContent>
         </Link>
       </div>
