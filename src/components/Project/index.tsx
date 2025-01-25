@@ -11,6 +11,7 @@ const datas = [
     description: "Web application dedicated to Islamic prayer times",
     link: "https://prayer-times.abbasali.cm",
     github: "https://github.com/Asam237/prayer-times-extension",
+    skills: ["JavaScript", "REST API", "Open source"],
   },
   {
     title: "Tempo Tracker",
@@ -18,6 +19,7 @@ const datas = [
       "Weather application using the OpenWeatherMap API, allowing to visualize weather conditions with integrated mapping features.",
     link: "https://tempo-tracker.abbasali.cm/",
     github: "https://github.com/Asam237/tempo-tracker",
+    skills: ["Next.js", "REST API", "Open source"],
   },
   {
     title: "E-Commerce API",
@@ -25,6 +27,7 @@ const datas = [
       "This project contains a minimal start-up for a Node.js e-commerce project using Typescript, ESLint and Prettier.",
     link: "https://github.com/Asam237/e-commerce-api",
     github: "https://github.com/Asam237/e-commerce-api",
+    skills: ["Express.js", "MongoDB", "Docker", "Open source"],
   },
 ];
 
@@ -43,6 +46,7 @@ const Project = ({ className }: ProjectProps) => {
               title={item.title}
               github={item.github}
               description={item.description}
+              skills={item.skills}
             />
           ))}
         </div>
