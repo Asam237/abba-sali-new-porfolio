@@ -44,7 +44,7 @@ const Home = () => {
           <About className="mt-[40px] sm:mt-[60px] lg:mt-[120px] xl:mt-[165px] mb-[40px]" />
           <Project />
           <Skills className="mt-[40px]" />
-          <Experiences className="mt-[40px]" />
+          <Experiences />
         </div>
       </DefaultLayout>
       {isVisible && (
