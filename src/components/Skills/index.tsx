@@ -5,7 +5,7 @@ import SlideUp from "@/Animations/SlideUp";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
 
-const skrills: string[] = [
+const skills: string[] = [
   "— JavaScript",
   "— TypeScript",
   "— React / React Native",
@@ -23,11 +23,11 @@ const skrills: string[] = [
 
 const Skills = ({ className, ...props }: SkillsProps) => {
   return (
-    <SlideUp className={cn("relative", className)} id="skrills" delay={0.3}>
+    <SlideUp className={cn("relative", className)} id="skills" delay={0.3}>
       <section {...props}>
-        <TitleSection title="skrills" />
+        <TitleSection title="skills" />
         <div className="mt-[40px]">
-          {skrills.map((item, index) => (
+          {skills.map((item, index) => (
             <ParagraphBody key={index}>{item}</ParagraphBody>
           ))}
         </div>

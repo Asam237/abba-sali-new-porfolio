@@ -21,8 +21,8 @@ const navs: NavType[] = [
     path: "/#projects",
   },
   {
-    name: "Skrills",
-    path: "/#skrills",
+    name: "Skills",
+    path: "/#skills",
   },
   {
     name: "Experiences",
