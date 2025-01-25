@@ -70,20 +70,31 @@ export const ProjectCard = ({
   github,
 }: CardProps) => {
   return (
-    <div className="border-[1.5px] border-[#8b928f] rounded-3xl p-4 transition-transform transform hover:scale-110">
+    <div className="border-[1.5px] border-[#8b928f] rounded-3xl p-4 transition-transform transform hover:scale-105">
       <ParagraphBody>{title}</ParagraphBody>
       <ParagraphContent className="text-gray-700">
         {description}
       </ParagraphContent>
-      <div className="flex justify-between items-center mt-4">
-        <Link href={github} className="flex justify-center space-x-1.5">
-          <FaGithub size={18} />
+      <div className="flex items-center mt-4 space-x-4">
+        <Link
+          href={github}
+          className="flex justify-center space-x-1.5 items-center"
+        >
+          <FaGithub size={14} />
           <ParagraphContent className="text-gray-700 font-[600]">
             Github
           </ParagraphContent>
         </Link>
-        <Link href={link} className={`${link === github ? "hidden" : "flex"}`}>
-          <FaLink size={16} />
+        <Link
+          href={link}
+          className={`flex justify-center items-center space-x-1.5 ${
+            link === github ? "hidden" : "flex"
+          }`}
+        >
+          <FaLink size={14} />
+          <ParagraphContent className="text-gray-700 font-[600]">
+            access the site
+          </ParagraphContent>
         </Link>
       </div>
     </div>
