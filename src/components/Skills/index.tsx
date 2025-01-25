@@ -9,6 +9,7 @@ const skills: string[] = [
   "— JavaScript",
   "— TypeScript",
   "— React / React Native",
+  "— Next.js",
   "— Express.js",
   "— Docker",
   "— REST API",

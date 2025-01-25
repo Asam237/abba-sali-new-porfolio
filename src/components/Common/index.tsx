@@ -13,6 +13,7 @@ type CardProps = {
   description: string;
   link: string;
   github: string;
+  skills: string[];
 };
 
 interface ParagraphBodyProps extends React.HTMLAttributes<HTMLDListElement> {
@@ -31,6 +32,16 @@ export const TitleSection = ({ title }: TitleSectionProps) => {
         {title}
       </h4>
     </div>
+  );
+};
+
+export const RoundText = ({ children, className }: ParagraphBodyProps) => {
+  return (
+    <span className={className}>
+      <ParagraphContent className="rounded-full border px-2 border-gray-700 text-gray-700 my-0.5 hover:bg-gray-700 hover:text-white">
+        {children}
+      </ParagraphContent>
+    </span>
   );
 };
 
@@ -68,6 +79,7 @@ export const ProjectCard = ({
   title,
   link,
   github,
+  skills,
 }: CardProps) => {
   return (
     <div className="border-[1.5px] border-[#8b928f] rounded-3xl p-4 transition-transform transform hover:scale-105">
@@ -75,6 +87,11 @@ export const ProjectCard = ({
       <ParagraphContent className="text-gray-700">
         {description}
       </ParagraphContent>
+      <div className="mt-4 flex space-x-1 flex-wrap">
+        {skills.map((item, index) => (
+          <RoundText key={index}>{item}</RoundText>
+        ))}
+      </div>
       <div className="flex items-center mt-4 space-x-4">
         <Link
           href={github}
