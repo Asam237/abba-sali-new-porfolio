@@ -10,7 +10,7 @@ const datas = [
     title: "Prayer Connect",
     description: "Web application dedicated to Islamic prayer times",
     link: "https://prayer-times.abbasali.cm",
-    github: "https://tempo-tracker.abbasali.cm/",
+    github: "https://github.com/Asam237/prayer-times-extension",
   },
   {
     title: "Tempo Tracker",
