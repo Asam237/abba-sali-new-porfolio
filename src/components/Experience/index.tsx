@@ -5,6 +5,7 @@ import { NunitoUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
 import Arrow from "../../../public/pictures/arrow.png";
 import Image from "next/image";
+import { FaPlus } from "react-icons/fa";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -87,28 +88,28 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
                 <div key={item.id} className="mb-2">
                   <div>
                     <p
-                      className={`cursor-pointer px-4 py-2 font-bold
+                      className={`cursor-pointer px-4 py-2 font-bold flex justify-between items-center
                       ${cn(NunitoUiDisplay.variable, NunitoUiDisplay.className)}
                       ${
                         activeId === item.id
-                          ? "bg-[#686D6B] text-gray-300 rounded-xl md:rounded-tr-none md:rounded-br-none md:rounded-tl-xl md:rounded-bl-xl flex justify-between"
+                          ? "bg-[#686D6B] text-gray-300 rounded-xl md:rounded-tr-none md:rounded-br-none md:rounded-tl-xl md:rounded-bl-xl"
                           : ""
                       }`}
                       onClick={() => setActiveId(item.id)}
                     >
                       {item.experience}
-                      <span
-                        className={`bg-[#686D6B] ${
-                          activeId === item.id ? "flex md:hidden" : "hidden"
-                        }`}
-                      >
-                        <Image
-                          src={Arrow}
-                          alt="picture"
-                          className="bg-[#686D6B]"
-                          width={20}
-                          height={20}
-                        />
+                      <span className={`bg-[#686D6B] flex md:hidden`}>
+                        {activeId === item.id ? (
+                          <Image
+                            src={Arrow}
+                            alt="picture"
+                            className="bg-[#686D6B]"
+                            width={20}
+                            height={20}
+                          />
+                        ) : (
+                          <FaPlus className="text-[#686D6B]" size={12} />
+                        )}
                       </span>
                     </p>
                   </div>
