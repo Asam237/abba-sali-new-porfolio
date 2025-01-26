@@ -1,9 +1,10 @@
-import { Box, Tabs, Text } from "@radix-ui/themes";
-import { ParagraphContent, TitleSection } from "../Common";
+import { TitleSection } from "../Common";
 import SlideUp from "@/Animations/SlideUp";
 import { useState } from "react";
 import { NunitoUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
+import Arrow from "../../../public/pictures/arrow.png";
+import Image from "next/image";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -84,18 +85,66 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
             <div className="md:w-2/6">
               {experiences.map((item) => (
                 <div key={item.id} className="mb-2">
-                  <p
-                    className={`cursor-pointer px-4 py-2 font-bold
+                  <div>
+                    <p
+                      className={`cursor-pointer px-4 py-2 font-bold
                       ${cn(NunitoUiDisplay.variable, NunitoUiDisplay.className)}
                       ${
                         activeId === item.id
-                          ? "bg-[#686D6B] text-gray-300 rounded-xl md:rounded-tr-none md:rounded-br-none md:rounded-tl-xl md:rounded-bl-xl"
+                          ? "bg-[#686D6B] text-gray-300 rounded-xl md:rounded-tr-none md:rounded-br-none md:rounded-tl-xl md:rounded-bl-xl flex justify-between"
                           : ""
                       }`}
-                    onClick={() => setActiveId(item.id)}
-                  >
-                    {item.experience}
-                  </p>
+                      onClick={() => setActiveId(item.id)}
+                    >
+                      {item.experience}
+                      <span
+                        className={`bg-[#686D6B] ${
+                          activeId === item.id ? "flex md:hidden" : "hidden"
+                        }`}
+                      >
+                        <Image
+                          src={Arrow}
+                          alt="picture"
+                          className="bg-[#686D6B]"
+                          width={20}
+                          height={20}
+                        />
+                      </span>
+                    </p>
+                  </div>
+                  {/* Contenu affiché en mode mobile uniquement */}
+                  {activeId === item.id && (
+                    <div className="flex flex-col space-y-3 p-4 bg-[#686D6B] rounded-xl md:hidden my-2">
+                      <p
+                        className={`${cn(
+                          NunitoUiDisplay.className,
+                          NunitoUiDisplay.variable
+                        )} font-bold text-lg bg-[#686D6B] text-gray-300`}
+                      >
+                        {item.title}
+                      </p>
+                      <p
+                        className={`
+                    ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
+                      text-xs font-semibold bg-[#686D6B] text-gray-300`}
+                      >
+                        {item.period}
+                      </p>
+                      <div className="flex flex-col space-y-1 bg-[#686D6B]">
+                        {item.items.map((item, index) => (
+                          <p
+                            key={index}
+                            className={`
+                    ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
+                      text-sm font-normal bg-[#686D6B] text-gray-300`}
+                          >
+                            {item}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                    // end mobile
+                  )}
                 </div>
               ))}
             </div>
@@ -109,7 +158,7 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
                 ${
                   activeId !== "oim" ? "md:rounded-tl-xl" : "md:rounded-tl-none"
                 } 
-              md:w-4/6 p-4 bg-[#686D6B] rounded-xl md:rounded-tl-none md:rounded-bl-none md:rounded-tr-xl md:rounded-br-xl`}
+              hidden md:flex flex-col md:w-4/6 p-4 bg-[#686D6B] rounded-xl md:rounded-tl-none md:rounded-bl-none md:rounded-tr-xl md:rounded-br-xl`}
             >
               {experiences
                 .filter((item) => item.id === activeId)
