@@ -6,7 +6,7 @@ import cn from "clsx";
 import Arrow from "../../../public/pictures/arrow.png";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -115,38 +115,45 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
                     </p>
                   </div>
                   {/* Contenu affiché en mode mobile uniquement */}
-                  {activeId === item.id && (
-                    <div className="flex flex-col space-y-3 p-4 bg-[#686D6B] rounded-xl md:hidden my-2">
-                      <p
-                        className={`${cn(
-                          NunitoUiDisplay.className,
-                          NunitoUiDisplay.variable
-                        )} font-bold text-lg bg-[#686D6B] text-gray-300`}
+                  <AnimatePresence>
+                    {activeId === item.id && (
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="flex flex-col space-y-3 p-4 bg-[#686D6B] rounded-xl md:hidden my-2"
                       >
-                        {item.title}
-                      </p>
-                      <p
-                        className={`
+                        <p
+                          className={`${cn(
+                            NunitoUiDisplay.className,
+                            NunitoUiDisplay.variable
+                          )} font-bold text-lg bg-[#686D6B] text-gray-300`}
+                        >
+                          {item.title}
+                        </p>
+                        <p
+                          className={`
                     ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
                       text-xs font-semibold bg-[#686D6B] text-gray-300`}
-                      >
-                        {item.period}
-                      </p>
-                      <div className="flex flex-col space-y-1 bg-[#686D6B]">
-                        {item.items.map((item, index) => (
-                          <p
-                            key={index}
-                            className={`
+                        >
+                          {item.period}
+                        </p>
+                        <div className="flex flex-col space-y-1 bg-[#686D6B]">
+                          {item.items.map((item, index) => (
+                            <p
+                              key={index}
+                              className={`
                     ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
                       text-sm font-normal bg-[#686D6B] text-gray-300`}
-                          >
-                            {item}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                    // end mobile
-                  )}
+                            >
+                              {item}
+                            </p>
+                          ))}
+                        </div>
+                      </motion.div>
+                      // end mobile
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
             </div>
