@@ -83,7 +83,8 @@ const Aside = ({ isVisible }: AsideProps) => {
       <aside className="relative">
         <div
           className={`${
-            isVisible ? "fixed" : "absolute"
+            // isVisible ? "fixed" : "absolute"
+            "absolute"
           } left-[20px] lg:left-[44px] top-[58px] z-10`}
         >
           <SlideRight delay={0.3}>
