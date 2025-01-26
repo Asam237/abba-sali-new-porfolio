@@ -100,6 +100,7 @@ export const ProjectCard = ({
             className="object-cover rounded-md h-[200px] hover:transition-transform hover:transform hover:scale-105"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[#181f1c] opacity-60 pointer-events-none"></div>
         </Link>
       </div>
       <div className="flex justify-between items-center">

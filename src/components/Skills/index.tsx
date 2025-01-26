@@ -25,23 +25,6 @@ import Image from "next/image";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
 
-// const skills: string[] = [
-//   "— JavaScript",
-//   "— TypeScript",
-//   "— React / React Native",
-//   "— Next.js",
-//   "— Express.js",
-//   "— Docker",
-//   "— REST API",
-//   "— MongoDB",
-//   "— PostgreSQL",
-//   "— Linux / Windows",
-//   "— Microsoft 365",
-//   "— Power BI",
-//   "— Git / GitHub",
-//   "— Open source",
-// ];
-
 type SkillsType = {
   icon: ReactNode;
   skill: string;
@@ -63,8 +46,8 @@ const skills: SkilInput[] = [
       {
         icon: (
           <Image
-            width={24}
-            height={24}
+            width={22}
+            height={22}
             src={TypeScript}
             alt="picture"
             className="bg-[#999999]"
@@ -90,7 +73,7 @@ const skills: SkilInput[] = [
     title: "Databases",
     items: [
       {
-        icon: <FaDatabase size={24} className="bg-[#999999]" />,
+        icon: <FaDatabase size={22} className="bg-[#999999]" />,
         skill: "MongoDB",
       },
       {
@@ -132,14 +115,14 @@ const skills: SkilInput[] = [
         skill: "Linux",
       },
       {
-        icon: <FaWindows size={24} className="bg-[#999999]" />,
+        icon: <FaWindows size={22} className="bg-[#999999]" />,
         skill: "Windows",
       },
       {
         icon: (
           <Image
-            width={24}
-            height={24}
+            width={22}
+            height={22}
             src={Office}
             alt="picture"
             className="bg-[#999999]"
