@@ -118,9 +118,9 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
                   <AnimatePresence>
                     {activeId === item.id && (
                       <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.3 }}
                         className="flex flex-col space-y-3 p-4 bg-[#686D6B] rounded-xl md:hidden my-2"
                       >
                         <p
