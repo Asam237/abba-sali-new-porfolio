@@ -99,7 +99,18 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
                 </div>
               ))}
             </div>
-            <div className="md:w-4/6 p-4 bg-[#686D6B] rounded-xl md:rounded-tl-none md:rounded-bl-none md:rounded-tr-xl md:rounded-br-xl">
+            <div
+              className={`
+                ${
+                  activeId !== "lagence"
+                    ? "md:rounded-bl-xl"
+                    : "md:rounded-bl-none"
+                } 
+                ${
+                  activeId !== "oim" ? "md:rounded-tl-xl" : "md:rounded-tl-none"
+                } 
+              md:w-4/6 p-4 bg-[#686D6B] rounded-xl md:rounded-tl-none md:rounded-bl-none md:rounded-tr-xl md:rounded-br-xl`}
+            >
               {experiences
                 .filter((item) => item.id === activeId)
                 .map((item) => (
