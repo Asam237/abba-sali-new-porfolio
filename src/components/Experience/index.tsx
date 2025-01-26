@@ -6,6 +6,7 @@ import cn from "clsx";
 import Arrow from "../../../public/pictures/arrow.png";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -164,7 +165,10 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
               {experiences
                 .filter((item) => item.id === activeId)
                 .map((item) => (
-                  <div
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
                     key={item.id}
                     className="flex flex-col space-y-3 bg-[#686D6B]"
                   >
@@ -195,7 +199,7 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
                         </p>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
             </div>
           </div>
