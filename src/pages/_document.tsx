@@ -5,10 +5,14 @@ export default class Blog extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link rel="shortcut icon" href="/static/favicon.ico" />
+        </Head>
         <DefaultSeo
-          title={"Abba Sali"}
-          description={"Abba Sali Aboubakar Mamate"}
+          title={"Abba Sali Aboubakar Mamate"}
+          description={
+            "Abba Sali Aboubakar Mamate | Passionate Software Engineer"
+          }
         />
         <body>
           <Main />
