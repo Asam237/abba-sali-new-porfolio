@@ -23,6 +23,11 @@ interface ParagraphBodyProps extends React.HTMLAttributes<HTMLDListElement> {
   children: ReactNode;
 }
 
+interface SkillsProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
+  icon: ReactNode;
+}
+
 export const TitleSection = ({ title }: TitleSectionProps) => {
   return (
     <div className="xl:h-[66px]">
@@ -140,3 +145,16 @@ export const ProjectCard = ({
     </div>
   );
 };
+
+export const SkillCard = ({ icon, children }: SkillsProps) => (
+  <div>
+    <p
+      className={`${cn(
+        NunitoUiDisplay.variable,
+        NunitoUiDisplay.className
+      )} text-[13px] sm:text-[14px] lg:text-[16px] tracking-[1%] font-[500] rounded-lg bg-[#999999] border border-gray-700 text-gray-800 py-1 px-3 flex items-center max-w-fit`}
+    >
+      <span className="mr-2 text-gray-900">{icon}</span> {children}
+    </p>
+  </div>
+);
