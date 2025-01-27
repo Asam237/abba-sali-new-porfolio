@@ -37,7 +37,7 @@ const Home = () => {
 
   return (
     <div className="bg-primary">
-      <Aside isVisible={isVisible} />
+      <Aside />
       <DefaultLayout className="py-[111px]">
         <div className="container mx-auto">
           <Header />

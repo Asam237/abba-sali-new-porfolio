@@ -31,8 +31,8 @@ const About = ({ className, ...props }: AboutProps) => {
       </SlideUp>
       <SlideUp delay={0.2}>
         <div className="pt-2 sm:pt-4 lg:pt-5 xl:pt-10">
-          <div className="hidden xl:flex relative">
-            <div className="absolute top-[100px] left-[-150px]">
+          <div className="hidden 2xl:flex relative">
+            <div className="absolute top-[100px] 2xl:left-[-120px]">
               <Image
                 alt="Quote illustration"
                 src={QuotePic}
