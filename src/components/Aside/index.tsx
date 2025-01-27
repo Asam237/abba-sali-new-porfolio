@@ -34,7 +34,7 @@ type AsideProps = {
   isVisible?: boolean;
 };
 
-const Aside = ({ isVisible }: AsideProps) => {
+const Aside = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
@@ -59,7 +59,7 @@ const Aside = ({ isVisible }: AsideProps) => {
 
   return (
     <>
-      <div className="container mx-auto mt-[58px] flex xl:hidden mb-[-20px]">
+      <div className="container mx-auto mt-[58px] flex xl:hidden mb-[-20px] z-0">
         <div className="flex justify-start items-center">
           <button
             className="flex xl:hidden cursor-pointer"
@@ -81,11 +81,7 @@ const Aside = ({ isVisible }: AsideProps) => {
         </div>
       </div>
       <aside className="relative">
-        <div
-          className={`${
-            isVisible ? "fixed" : "absolute"
-          } left-[20px] lg:left-[44px] top-[58px] z-10`}
-        >
+        <div className={`fixed left-[20px] lg:left-[44px] top-[58px] z-10`}>
           <SlideRight delay={0.3}>
             <div className="flex flex-col">
               <div className="hidden xl:flex justify-start items-center">
@@ -127,7 +123,7 @@ const Aside = ({ isVisible }: AsideProps) => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed left-0 top-0 w-full h-screen bg-[#181F1C] z-50"
+              className="fixed left-0 top-0 w-full h-screen bg-[#181F1C] z-30"
             >
               <div className="flex justify-start items-center absolute top-[58px] right-0 bg-[#181F1C] left-[20px]">
                 <button
