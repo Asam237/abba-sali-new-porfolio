@@ -89,7 +89,10 @@ export const ProjectCard = ({
   return (
     <div className="card-simple rounded-2xl p-6 group">
       <div className="rounded-xl overflow-hidden mb-6 relative">
-        <Link href={link !== github ? link : github} className="block relative group">
+        <Link
+          href={link !== github ? link : github}
+          className="block relative group"
+        >
           <Image
             src={picture}
             alt={title}
@@ -98,11 +101,8 @@ export const ProjectCard = ({
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
         </Link>
       </div>
-      
       <div className="flex justify-between items-start mb-3">
-        <h3 className="font-semibold text-gray-900 text-lg">
-          {title}
-        </h3>
+        <h3 className="font-semibold text-gray-900 text-lg">{title}</h3>
         <div className="flex space-x-2">
           <Link
             href={github}
@@ -120,11 +120,9 @@ export const ProjectCard = ({
           )}
         </div>
       </div>
-      
       <ParagraphContent className="text-gray-600 mb-4">
         {description}
       </ParagraphContent>
-      
       <div className="flex gap-2 flex-wrap">
         {skills.map((item, index) => (
           <RoundText key={index}>{item}</RoundText>

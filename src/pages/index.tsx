@@ -8,6 +8,8 @@ import Skills from "@/components/Skills";
 import DefaultLayout from "@/layouts/default.layout";
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import cn from "clsx";
+import { PoppinsUiDisplay } from "@/lib/fonts";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,6 +18,8 @@ const Home = () => {
     const currentScrollY = window.scrollY;
     setIsVisible(currentScrollY > 300);
   };
+
+  const fontClass = cn(PoppinsUiDisplay.variable, PoppinsUiDisplay.className);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -30,7 +34,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className={`min-h-screen bg-gray-50 ${fontClass}`}>
       <Aside />
       <DefaultLayout className="pt-16">
         <div className="max-w-6xl mx-auto px-6">
@@ -41,7 +45,6 @@ const Home = () => {
           <Experience />
         </div>
       </DefaultLayout>
-      
       {/* Scroll to top button */}
       {isVisible && (
         <button
@@ -51,7 +54,6 @@ const Home = () => {
           <FaArrowUp size={16} />
         </button>
       )}
-      
       <Footer />
     </div>
   );

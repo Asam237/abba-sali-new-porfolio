@@ -47,7 +47,6 @@ const Aside = () => {
             >
               Abba Sali
             </Link>
-            
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {navs.map((item, index) => (
@@ -61,7 +60,6 @@ const Aside = () => {
                 </Link>
               ))}
             </div>
-            
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
@@ -73,7 +71,6 @@ const Aside = () => {
           </div>
         </div>
       </nav>
-      
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (

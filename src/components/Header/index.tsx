@@ -19,8 +19,8 @@ const Header = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h4 className="text-lg font-medium text-gray-600 mb-4">
-            Hello, I'm
+          <h4 className="text-lg lg:text-xl font-medium text-gray-600 mb-4">
+            Hello, I&apos;
           </h4>
           <h1
             className={`${fontClass} text-5xl md:text-7xl lg:text-8xl font-light text-gray-900 mb-6 text-shadow-sm`}
@@ -33,15 +33,16 @@ const Header = () => {
             Software Engineer
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Passionate about creating elegant solutions to complex problems.
-            I love architecting software and developing beautiful user experiences.
+            Passionate about creating elegant solutions to complex problems. I
+            love architecting software and developing beautiful user
+            experiences.
           </p>
         </motion.div>
       </SlideUp>
-      
+
       <SlideUp delay={0.4}>
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mt-12">
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 sm:text-xl">
             <Link
               href="https://www.linkedin.com/in/abba-sali-aboubakar-mamate/"
               target="_blank"
@@ -64,7 +65,6 @@ const Header = () => {
               <FaWhatsapp size={20} className="text-green-600" />
             </Link>
           </div>
-          
           <Link
             href="https://drive.google.com/file/d/1jwXSy7uFHpWwU8HRuNSaWDIwv55Sc8wb/view?usp=drive_link"
             target="_blank"

@@ -3,6 +3,26 @@ import localFont from "next/font/local";
 /**
  * Nunito
  */
+export const PoppinsUiDisplay = localFont({
+  src: [
+    {
+      path: "../fonts/Poppins/Regular.ttf",
+      weight: "500",
+      style: "medium",
+    },
+    {
+      path: "../fonts/Poppins/bold.ttf",
+      weight: "600",
+      style: "bold",
+    },
+  ],
+  display: "swap",
+  variable: "--font-poppins-ui-display",
+  preload: true,
+});
+/**
+ * Nunito
+ */
 export const NunitoUiDisplay = localFont({
   src: [
     {

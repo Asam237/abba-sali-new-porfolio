@@ -6,8 +6,35 @@ import SlideUp from "@/Animations/SlideUp";
 import Project1 from "../../../public/pictures/p1.webp";
 import Project2 from "../../../public/pictures/p2.webp";
 import Project3 from "../../../public/pictures/p3.webp";
+import Project4 from "../../../public/pictures/p4.webp";
+import Project5 from "../../../public/pictures/p5.webp";
+import Project6 from "../../../public/pictures/p6.webp";
 
 const datas = [
+  {
+    title: "Data Kamer",
+    description:
+      "All you need to know about Cameroon - Key statistics and information",
+    link: "https://data-kamer.vercel.app",
+    github: "https://github.com/Asam237/data-kamer",
+    skills: [
+      "Next.js",
+      "Typescript",
+      "OpenStreetMap",
+      "Pigeon",
+      "Github",
+      "Open source",
+    ],
+    picture: Project4,
+  },
+  {
+    title: "Fast Scropper",
+    description: "Professional Image Cropping Tool",
+    link: "https://fast-cropper.vercel.app/",
+    github: "https://github.com/Asam237/fast-cropper",
+    skills: ["Next.js", "Github", "Open source"],
+    picture: Project5,
+  },
   {
     title: "Prayer Connect",
     description: "Web application dedicated to Islamic prayer times",
@@ -17,20 +44,28 @@ const datas = [
     picture: Project1,
   },
   {
-    title: "Tempo Tracker",
-    description: "Weather app with OpenWeatherMap API and maps.",
-    link: "https://tempo-tracker.abbasali.cm/",
-    github: "https://github.com/Asam237/tempo-tracker",
-    skills: ["Next.js", "REST API", "Github", "Open source"],
-    picture: Project2,
-  },
-  {
     title: "E-Commerce API",
     description: "Minimal Node.js e-commerce starter with TypeScript setup.",
     link: "https://github.com/Asam237/e-commerce-api",
     github: "https://github.com/Asam237/e-commerce-api",
     skills: ["Express.js", "MongoDB", "Docker", "REST API", "Open source"],
     picture: Project3,
+  },
+  {
+    title: "Node Search Engine Stackoverflow",
+    description: "Simple search engine for StackOverflow, built using Node.js.",
+    link: "https://github.com/Asam237/node-search-engine-stackoverflow",
+    github: "https://github.com/Asam237/node-search-engine-stackoverflow",
+    skills: ["Express.js", "REST API", "Github", "Open source"],
+    picture: Project6,
+  },
+  {
+    title: "Tempo Tracker",
+    description: "Weather app with OpenWeatherMap API and maps.",
+    link: "https://tempo-tracker.abbasali.cm/",
+    github: "https://github.com/Asam237/tempo-tracker",
+    skills: ["Next.js", "REST API", "Github", "Open source"],
+    picture: Project2,
   },
 ];
 
@@ -42,7 +77,6 @@ const Project = ({ className }: ProjectProps) => {
       <div className="max-w-6xl mx-auto">
         <SlideUp delay={0.2}>
           <TitleSection title="Selected Projects" />
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {datas.map((item, index) => (
               <ProjectCard
@@ -56,7 +90,6 @@ const Project = ({ className }: ProjectProps) => {
               />
             ))}
           </div>
-          
           <div className="text-center">
             <Link
               href="https://github.com/Asam237"

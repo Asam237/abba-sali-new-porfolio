@@ -87,7 +87,6 @@ const Experience = ({ className, ...props }: ExperienceProps) => {
       <div className="max-w-4xl mx-auto">
         <SlideUp delay={0.2}>
           <TitleSection title="Work Experience" />
-          
           <div className="space-y-4">
             {experiences.map((experience) => (
               <div
@@ -121,7 +120,6 @@ const Experience = ({ className, ...props }: ExperienceProps) => {
                     )}
                   </div>
                 </button>
-                
                 <AnimatePresence>
                   {expandedId === experience.id && (
                     <motion.div
@@ -140,7 +138,9 @@ const Experience = ({ className, ...props }: ExperienceProps) => {
                                 className="flex items-start text-gray-600"
                               >
                                 <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                <span className="text-sm leading-relaxed">{item}</span>
+                                <span className="text-sm leading-relaxed">
+                                  {item}
+                                </span>
                               </li>
                             ))}
                           </ul>

@@ -20,6 +20,7 @@ import { AiOutlineJavaScript } from "react-icons/ai";
 import Postgres from "../../../public/pictures/postgres.png";
 import TypeScript from "../../../public/pictures/typescript.png";
 import Office from "../../../public/pictures/office.png";
+import Django from "../../../public/pictures/django.png";
 import Image from "next/image";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
@@ -44,12 +45,7 @@ const skills: SkilInput[] = [
       },
       {
         icon: (
-          <Image
-            width={20}
-            height={20}
-            src={TypeScript}
-            alt="TypeScript"
-          />
+          <Image width={20} height={20} src={TypeScript} alt="TypeScript" />
         ),
         skill: "TypeScript",
       },
@@ -65,6 +61,10 @@ const skills: SkilInput[] = [
         icon: <FaCode size={20} className="text-green-600" />,
         skill: "Express.js",
       },
+      {
+        icon: <Image width={20} height={20} src={Django} alt="Django" />,
+        skill: "Microsoft 365",
+      },
     ],
   },
   {
@@ -75,20 +75,13 @@ const skills: SkilInput[] = [
         skill: "MongoDB",
       },
       {
-        icon: (
-          <Image
-            width={20}
-            height={20}
-            src={Postgres}
-            alt="PostgreSQL"
-          />
-        ),
+        icon: <Image width={20} height={20} src={Postgres} alt="PostgreSQL" />,
         skill: "PostgreSQL",
       },
     ],
   },
   {
-    title: "Data Analysis",
+    title: "Integration & Analytics",
     items: [
       {
         icon: <FaChartLine size={20} className="text-yellow-600" />,
@@ -101,7 +94,7 @@ const skills: SkilInput[] = [
     ],
   },
   {
-    title: "Tools & Environments",
+    title: "Environments & Deployment",
     items: [
       {
         icon: <FaDocker size={20} className="text-blue-500" />,
@@ -116,20 +109,13 @@ const skills: SkilInput[] = [
         skill: "Windows",
       },
       {
-        icon: (
-          <Image
-            width={20}
-            height={20}
-            src={Office}
-            alt="Microsoft 365"
-          />
-        ),
+        icon: <Image width={20} height={20} src={Office} alt="Microsoft 365" />,
         skill: "Microsoft 365",
       },
     ],
   },
   {
-    title: "Version Control",
+    title: "Collaboration & Version Controlgg",
     items: [
       {
         icon: <FaGit size={20} className="text-orange-600" />,
@@ -153,7 +139,6 @@ const Skills = ({ className, ...props }: SkillsProps) => {
       <div className="max-w-6xl mx-auto">
         <SlideUp delay={0.2}>
           <TitleSection title="Skills & Technologies" />
-          
           <div className="space-y-12">
             {skills.map((category, index) => (
               <div key={index}>
