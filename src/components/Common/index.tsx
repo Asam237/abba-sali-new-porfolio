@@ -30,25 +30,21 @@ interface SkillsProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const TitleSection = ({ title }: TitleSectionProps) => {
   return (
-    <div className="xl:h-[66px]">
-      <h4
-        className={`${cn(
-          NunitoUiDisplay.variable,
-          NunitoUiDisplay.className
-        )} py-6 text-[#181F1C] text-[13px] font-[600] uppercase tracking-[15%] border-b-[0.75px] border-[#A0A6A4]`}
-      >
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
         {title}
-      </h4>
+      </h2>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
     </div>
   );
 };
 
 export const RoundText = ({ children, className }: ParagraphBodyProps) => {
   return (
-    <span className={className}>
-      <ParagraphContent className="rounded-full border px-2 border-gray-700 text-gray-700 my-0.5 hover:bg-gray-700 hover:text-white">
+    <span className={`inline-block ${className}`}>
+      <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-200">
         {children}
-      </ParagraphContent>
+      </span>
     </span>
   );
 };
@@ -59,7 +55,7 @@ export const ParagraphBody = ({ children, className }: ParagraphBodyProps) => {
       className={`${cn(
         NunitoUiDisplay.variable,
         NunitoUiDisplay.className
-      )} text-[#181F1C] text-[14px] sm:text-[20px] lg:text-[32px] tracking-[1%] lg:leading-[44.8px] font-[500] ${className}`}
+      )} text-gray-600 text-lg leading-relaxed ${className}`}
     >
       {children}
     </p>
@@ -75,7 +71,7 @@ export const ParagraphContent = ({
       className={`${cn(
         NunitoUiDisplay.variable,
         NunitoUiDisplay.className
-      )} text-[#696D6B] text-[12px] lg:text-[14px] tracking-[1%] font-[500] ${className}`}
+      )} text-gray-500 text-sm leading-relaxed ${className}`}
     >
       {children}
     </p>
@@ -91,54 +87,46 @@ export const ProjectCard = ({
   picture,
 }: CardProps) => {
   return (
-    <div>
-      <div className="border-[1.5px] border-[#8b928f] rounded-md p-2">
-        <Link href={link !== github ? link : github} className="relative group">
+    <div className="card-simple rounded-2xl p-6 group">
+      <div className="rounded-xl overflow-hidden mb-6 relative">
+        <Link
+          href={link !== github ? link : github}
+          className="block relative group"
+        >
           <Image
             src={picture}
-            alt="picture"
-            className="object-cover rounded-md h-[200px] hover:transition-transform hover:transform hover:scale-105"
+            alt={title}
+            className="object-cover rounded-xl h-48 w-full transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity rounded-md" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[#181f1c] opacity-50 pointer-events-none rounded-md " />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
         </Link>
       </div>
-      <div className="flex justify-between items-center">
-        <h4
-          className={`${cn(
-            NunitoUiDisplay.variable,
-            NunitoUiDisplay.className
-          )} font-[600] text-[#181F1C] text-[14px] lg:text-[16px] tracking-[1%] mt-4`}
-        >
-          {title}
-        </h4>
+
+      <div className="flex justify-between items-start mb-3">
+        <h3 className="font-semibold text-gray-900 text-lg">{title}</h3>
         <div className="flex space-x-2">
           <Link
             href={github}
-            className="flex justify-center space-x-1.5 items-center"
+            className="p-2 bg-gray-50 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:scale-110"
           >
-            <FaGithub
-              size={16}
-              className="hover:transition-transform hover:transform hover:scale-110"
-            />
+            <FaGithub size={16} className="text-gray-600" />
           </Link>
-          <Link
-            href={link}
-            className={`flex justify-center items-center space-x-1.5 ${
-              link === github ? "hidden" : "flex"
-            }`}
-          >
-            <BsArrowUpRightSquare
-              size={16}
-              className="hover:transition-transform hover:transform hover:scale-110"
-            />
-          </Link>
+          {link !== github && (
+            <Link
+              href={link}
+              className="p-2 bg-gray-50 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:scale-110"
+            >
+              <BsArrowUpRightSquare size={16} className="text-gray-600" />
+            </Link>
+          )}
         </div>
       </div>
-      <ParagraphContent className="text-gray-700">
+
+      <ParagraphContent className="text-gray-600 mb-4">
         {description}
       </ParagraphContent>
-      <div className="mt-2 flex gap-1 flex-wrap">
+
+      <div className="flex gap-2 flex-wrap">
         {skills.map((item, index) => (
           <RoundText key={index}>{item}</RoundText>
         ))}
@@ -148,14 +136,10 @@ export const ProjectCard = ({
 };
 
 export const SkillCard = ({ icon, children }: SkillsProps) => (
-  <div>
-    <p
-      className={`${cn(
-        NunitoUiDisplay.variable,
-        NunitoUiDisplay.className
-      )} text-[13px] sm:text-[14px] lg:text-[16px] tracking-[1%] font-[500] rounded-lg bg-[#999999] border border-gray-700 text-gray-800 py-1 px-3 flex items-center max-w-fit`}
-    >
-      <span className="mr-2 text-gray-900">{icon}</span> {children}
-    </p>
+  <div className="inline-block">
+    <div className="flex items-center px-4 py-2 bg-white rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all duration-300">
+      <span className="mr-2 text-gray-600">{icon}</span>
+      <span className="text-gray-700 font-medium text-sm">{children}</span>
+    </div>
   </div>
 );

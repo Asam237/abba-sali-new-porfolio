@@ -17,10 +17,10 @@ import {
   FaWindows,
 } from "react-icons/fa";
 import { AiOutlineJavaScript } from "react-icons/ai";
-import { NunitoUiDisplay } from "@/lib/fonts";
 import Postgres from "../../../public/pictures/postgres.png";
 import TypeScript from "../../../public/pictures/typescript.png";
 import Office from "../../../public/pictures/office.png";
+import Django from "../../../public/pictures/django.png";
 import Image from "next/image";
 
 interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
@@ -37,35 +37,33 @@ type SkilInput = {
 
 const skills: SkilInput[] = [
   {
-    title: "Web development",
+    title: "Web Development",
     items: [
       {
-        icon: <FaJs size={24} className="bg-[#999999]" />,
+        icon: <FaJs size={20} className="text-yellow-500" />,
         skill: "JavaScript",
       },
       {
         icon: (
-          <Image
-            width={22}
-            height={22}
-            src={TypeScript}
-            alt="picture"
-            className="bg-[#999999]"
-          />
+          <Image width={20} height={20} src={TypeScript} alt="TypeScript" />
         ),
         skill: "TypeScript",
       },
       {
-        icon: <AiOutlineJavaScript size={24} className="bg-[#999999]" />,
+        icon: <AiOutlineJavaScript size={20} className="text-black" />,
         skill: "Next.js",
       },
       {
-        icon: <FaReact size={24} className="bg-[#999999]" />,
+        icon: <FaReact size={20} className="text-blue-500" />,
         skill: "React.js",
       },
       {
-        icon: <FaCode size={24} className="bg-[#999999]" />,
+        icon: <FaCode size={20} className="text-green-600" />,
         skill: "Express.js",
+      },
+      {
+        icon: <Image width={20} height={20} src={Django} alt="Django" />,
+        skill: "Microsoft 365",
       },
     ],
   },
@@ -73,79 +71,63 @@ const skills: SkilInput[] = [
     title: "Databases",
     items: [
       {
-        icon: <FaDatabase size={22} className="bg-[#999999]" />,
+        icon: <FaDatabase size={20} className="text-green-600" />,
         skill: "MongoDB",
       },
       {
-        icon: (
-          <Image
-            width={24}
-            height={24}
-            src={Postgres}
-            alt="picture"
-            className="bg-[#999999]"
-          />
-        ),
+        icon: <Image width={20} height={20} src={Postgres} alt="PostgreSQL" />,
         skill: "PostgreSQL",
       },
     ],
   },
   {
-    title: "Data Analysis",
+    title: "Integration & Analytics",
     items: [
       {
-        icon: <FaChartLine size={24} className="bg-[#999999]" />,
+        icon: <FaChartLine size={20} className="text-yellow-600" />,
         skill: "Power BI",
       },
       {
-        icon: <FaNetworkWired size={24} className="bg-[#999999]" />,
+        icon: <FaNetworkWired size={20} className="text-blue-600" />,
         skill: "REST API",
       },
     ],
   },
   {
-    title: "Tools and Environments",
+    title: "Environments & Deployment",
     items: [
       {
-        icon: <FaDocker size={24} className="bg-[#999999]" />,
+        icon: <FaDocker size={20} className="text-blue-500" />,
         skill: "Docker",
       },
       {
-        icon: <FaLinux size={24} className="bg-[#999999]" />,
+        icon: <FaLinux size={20} className="text-gray-800" />,
         skill: "Linux",
       },
       {
-        icon: <FaWindows size={22} className="bg-[#999999]" />,
+        icon: <FaWindows size={20} className="text-blue-600" />,
         skill: "Windows",
       },
       {
-        icon: (
-          <Image
-            width={22}
-            height={22}
-            src={Office}
-            alt="picture"
-            className="bg-[#999999]"
-          />
-        ),
+        icon: <Image width={20} height={20} src={Office} alt="Microsoft 365" />,
         skill: "Microsoft 365",
       },
     ],
   },
   {
-    title: "Code management",
+    title: "Collaboration & Version Controlgg",
     items: [
       {
-        icon: <FaGit size={24} className="bg-[#999999]" />,
+        icon: <FaGit size={20} className="text-orange-600" />,
         skill: "Git",
       },
       {
-        icon: <FaGithub size={24} className="bg-[#999999]" />,
+        icon: <FaGithub size={20} className="text-gray-800" />,
         skill: "GitHub",
       },
       {
-        icon: <FaCodeBranch size={24} className="bg-[#999999]" />,
-        skill: "Open source",
+        icon: <FaCodeBranch size={20} className="text-purple-600" />,
+        skill: "Open Source",
       },
     ],
   },
@@ -153,32 +135,30 @@ const skills: SkilInput[] = [
 
 const Skills = ({ className, ...props }: SkillsProps) => {
   return (
-    <SlideUp className={cn("relative", className)} id="skills" delay={0.3}>
-      <section {...props}>
-        <TitleSection title="skills" />
-        <div className="mt-[40px]">
-          {skills.map((item, index) => (
-            <div key={index} className="mt-4">
-              <h4
-                className={`${cn(
-                  NunitoUiDisplay.variable,
-                  NunitoUiDisplay.className
-                )} text-[#181F1C] text-[13px] font-[600] uppercase tracking-[15%]`}
-              >
-                {item.title}
-              </h4>
-              <div className="flex gap-1.5 flex-wrap mt-1">
-                {item.items.map((i, ii) => (
-                  <SkillCard key={ii} icon={i.icon}>
-                    {i.skill}
-                  </SkillCard>
-                ))}
+    <section id="skills" className={`py-20 ${className}`}>
+      <div className="max-w-6xl mx-auto">
+        <SlideUp delay={0.2}>
+          <TitleSection title="Skills & Technologies" />
+
+          <div className="space-y-12">
+            {skills.map((category, index) => (
+              <div key={index}>
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">
+                  {category.title}
+                </h3>
+                <div className="flex gap-3 flex-wrap">
+                  {category.items.map((item, itemIndex) => (
+                    <SkillCard key={itemIndex} icon={item.icon}>
+                      {item.skill}
+                    </SkillCard>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    </SlideUp>
+            ))}
+          </div>
+        </SlideUp>
+      </div>
+    </section>
   );
 };
 

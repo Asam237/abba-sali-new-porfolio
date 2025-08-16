@@ -3,16 +3,14 @@ import SlideUp from "@/Animations/SlideUp";
 import { useState } from "react";
 import { NunitoUiDisplay } from "@/lib/fonts";
 import cn from "clsx";
-import Arrow from "../../../public/pictures/arrow.png";
-import Image from "next/image";
-import { FaPlus } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 
-interface SkillsProps extends React.HTMLAttributes<HTMLElement> {}
+interface ExperienceProps extends React.HTMLAttributes<HTMLElement> {}
 
 type ExperienceType = {
   id: string;
-  experience: string;
+  company: string;
   title: string;
   period: string;
   items: string[];
@@ -21,199 +19,145 @@ type ExperienceType = {
 const experiences: ExperienceType[] = [
   {
     id: "oim",
-    experience: "IOM — ONU MIGRATION",
+    company: "IOM — UN Migration",
     title: "Data Entry Consultant",
     period: "May 2024 - Present",
     items: [
-      "▹ Register migrants in IOM database",
-      "▹Maintain daily health assessment statistics and update records",
-      "▹Contribute to the management of customer satisfaction assessments.",
+      "Register migrants in IOM database",
+      "Maintain daily health assessment statistics and update records",
+      "Contribute to the management of customer satisfaction assessments",
     ],
   },
   {
     id: "oss",
-    experience: "OSS CAMEROON",
-    title: "Software Engineer and Technical Support",
-    period: "September 2021 - Present: Software Engineer and Technical Support",
+    company: "OSS Cameroon",
+    title: "Software Engineer & Technical Support",
+    period: "September 2021 - Present",
     items: [
-      "▹Frontend developer (React, Vue)",
-      "▹Implementation of Continuous Deployment (CI/CD)",
-      "▹Technical Support",
+      "Frontend development with React and Vue.js",
+      "Implementation of Continuous Deployment (CI/CD)",
+      "Technical support and system maintenance",
     ],
   },
   {
     id: "regtrack",
-    experience: "Reg Track",
+    company: "Reg Track",
     title: "Frontend Engineer",
-    period: "March 2024 - May 2024: Frontend Engineer",
-    items: ["▹Frontend engineer (Next.js)", "▹Technical Support"],
+    period: "March 2024 - May 2024",
+    items: [
+      "Frontend development with Next.js",
+      "Technical support and user assistance",
+    ],
   },
   {
     id: "digitrade",
-    experience: "DIGITRADE",
+    company: "Digitrade",
     title: "Software Engineer",
-    period: "August 2022 - January 2023: Software Engineer",
+    period: "August 2022 - January 2023",
     items: [
-      "▹Frontend developer (React.js)",
-      "▹Backend developer (Express.js)",
-      "▹Mobile developer (Flutter)",
+      "Frontend development with React.js",
+      "Backend development with Express.js",
+      "Mobile development with Flutter",
     ],
   },
   {
     id: "lagence",
-    experience: "LAGENCE DIGITAL",
+    company: "L'Agence Digital",
     title: "Software Engineer",
-    period:
-      "March 2022 - July 2022 & February 2023 - November 2023: Software Engineer",
+    period: "March 2022 - July 2022 & February 2023 - November 2023",
     items: [
-      "▹Frontend developer (React.js, Vue.js)",
-      "▹Backend developer (Express.js)",
-      "▹Mobile developer (Flutter)",
-      "▹Implementation of Continuous Deployment (CI/CD)",
-      "▹Project Management",
+      "Frontend development with React.js and Vue.js",
+      "Backend development with Express.js",
+      "Mobile development with Flutter",
+      "Implementation of CI/CD pipelines",
+      "Project management and team coordination",
     ],
   },
 ];
 
-const Experiences = ({ className, ...props }: SkillsProps) => {
-  const [activeId, setActiveId] = useState("oim");
+const Experience = ({ className, ...props }: ExperienceProps) => {
+  const [expandedId, setExpandedId] = useState<string | null>("oim");
+
+  const toggleExpanded = (id: string) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
 
   return (
-    <SlideUp id="experiences" delay={0.3} className="mt-[40px]">
-      <section className={className}>
-        <TitleSection title="Experience" />
-        <div className="mt-[40px]">
-          <div className="flex flex-col md:flex-row md:max-h-[232px]">
-            <div className="md:w-2/6">
-              {experiences.map((item) => (
-                <div key={item.id} className="mb-2">
-                  <div>
-                    <p
-                      className={`cursor-pointer px-4 py-2 font-bold flex justify-between items-center
-                      ${cn(NunitoUiDisplay.variable, NunitoUiDisplay.className)}
-                      ${
-                        activeId === item.id
-                          ? "bg-[#686D6B] text-gray-300 rounded-xl md:rounded-tr-none md:rounded-br-none md:rounded-tl-xl md:rounded-bl-xl"
-                          : ""
-                      }`}
-                      onClick={() => setActiveId(item.id)}
-                    >
-                      {item.experience}
-                      <span className={`bg-[#686D6B] flex md:hidden`}>
-                        {activeId === item.id ? (
-                          <Image
-                            src={Arrow}
-                            alt="picture"
-                            className="bg-[#686D6B]"
-                            width={20}
-                            height={20}
-                          />
-                        ) : (
-                          <FaPlus className="text-[#686D6B]" size={12} />
-                        )}
-                      </span>
-                    </p>
-                  </div>
-                  {/* Contenu affiché en mode mobile uniquement */}
-                  <AnimatePresence>
-                    {activeId === item.id && (
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="flex flex-col space-y-3 p-4 bg-[#686D6B] rounded-xl md:hidden my-2"
-                      >
-                        <p
-                          className={`${cn(
-                            NunitoUiDisplay.className,
-                            NunitoUiDisplay.variable
-                          )} font-bold text-lg bg-[#686D6B] text-gray-300`}
-                        >
-                          {item.title}
+    <section id="experiences" className={`py-20 ${className}`}>
+      <div className="max-w-4xl mx-auto">
+        <SlideUp delay={0.2}>
+          <TitleSection title="Work Experience" />
+
+          <div className="space-y-4">
+            {experiences.map((experience) => (
+              <div
+                key={experience.id}
+                className="bg-white rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md"
+              >
+                <button
+                  onClick={() => toggleExpanded(experience.id)}
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                >
+                  <div className="flex-1">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                          {experience.title}
+                        </h3>
+                        <p className="text-blue-600 font-medium">
+                          {experience.company}
                         </p>
-                        <p
-                          className={`
-                    ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
-                      text-xs font-semibold bg-[#686D6B] text-gray-300`}
-                        >
-                          {item.period}
-                        </p>
-                        <div className="flex flex-col space-y-1 bg-[#686D6B]">
-                          {item.items.map((item, index) => (
-                            <p
-                              key={index}
-                              className={`
-                    ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
-                      text-sm font-normal bg-[#686D6B] text-gray-300`}
-                            >
-                              {item}
-                            </p>
-                          ))}
-                        </div>
-                      </motion.div>
-                      // end mobile
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </div>
-            <div
-              className={`
-                ${
-                  activeId !== "lagence"
-                    ? "md:rounded-bl-xl"
-                    : "md:rounded-bl-none"
-                } 
-                ${
-                  activeId !== "oim" ? "md:rounded-tl-xl" : "md:rounded-tl-none"
-                } 
-              hidden md:flex flex-col md:w-4/6 p-4 bg-[#686D6B] rounded-xl md:rounded-tl-none md:rounded-bl-none md:rounded-tr-xl md:rounded-br-xl`}
-            >
-              {experiences
-                .filter((item) => item.id === activeId)
-                .map((item) => (
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    key={item.id}
-                    className="flex flex-col space-y-3 bg-[#686D6B]"
-                  >
-                    <p
-                      className={`${cn(
-                        NunitoUiDisplay.className,
-                        NunitoUiDisplay.variable
-                      )} font-bold text-lg bg-[#686D6B] text-gray-300`}
-                    >
-                      {item.title}
-                    </p>
-                    <p
-                      className={`
-                    ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
-                      text-xs font-semibold bg-[#686D6B] text-gray-300`}
-                    >
-                      {item.period}
-                    </p>
-                    <div className="flex flex-col space-y-1 bg-[#686D6B]">
-                      {item.items.map((item, index) => (
-                        <p
-                          key={index}
-                          className={`
-                    ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
-                      text-sm font-normal bg-[#686D6B] text-gray-300`}
-                        >
-                          {item}
-                        </p>
-                      ))}
+                      </div>
+                      <p className="text-sm text-gray-500 mt-2 md:mt-0">
+                        {experience.period}
+                      </p>
                     </div>
-                  </motion.div>
-                ))}
-            </div>
+                  </div>
+                  <div className="ml-4">
+                    {expandedId === experience.id ? (
+                      <FaChevronUp className="text-gray-400" />
+                    ) : (
+                      <FaChevronDown className="text-gray-400" />
+                    )}
+                  </div>
+                </button>
+
+                <AnimatePresence>
+                  {expandedId === experience.id && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6">
+                        <div className="border-t border-gray-100 pt-4">
+                          <ul className="space-y-2">
+                            {experience.items.map((item, index) => (
+                              <li
+                                key={index}
+                                className="flex items-start text-gray-600"
+                              >
+                                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span className="text-sm leading-relaxed">
+                                  {item}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
-    </SlideUp>
+        </SlideUp>
+      </div>
+    </section>
   );
 };
 
-export default Experiences;
+export default Experience;

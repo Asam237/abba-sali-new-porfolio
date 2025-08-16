@@ -1,63 +1,62 @@
 import { SkylarSansBoldUiDisplay } from "@/lib/fonts";
 import { ParagraphBody, TitleSection } from "../Common";
-import QuotePic from "../../../public/pictures/quotes.png";
 import cn from "clsx";
-import Image from "next/image";
 import SlideUp from "@/Animations/SlideUp";
+import { motion } from "framer-motion";
 
 interface AboutProps extends React.HTMLAttributes<HTMLElement> {}
 
 const About = ({ className, ...props }: AboutProps) => {
   return (
-    <div id="about">
-      <SlideUp delay={0.3}>
-        <TitleSection title="About" />
-        <div className="my-4 sm:my-5 lg:my-7 xl:my-10 gap-2 xl:gap-10 pb-2 xl:pb-10">
-          <div className="pt-2 sm:pt-5 lg:pt-7 xl:pt-10">
-            <ParagraphBody>
-              Hi, I&apos;m Abba Sali. <br />
-              A Software developer & UI/UX designer focused <br />
-              on developing software for people.
-            </ParagraphBody>
-          </div>
-          <div className="pt-10">
-            <ParagraphBody>
-              I love architecting software and developing elegant
-              <br />
-              solutions to complex problems.
-            </ParagraphBody>
-          </div>
-        </div>
-      </SlideUp>
-      <SlideUp delay={0.2}>
-        <div className="pt-2 sm:pt-4 lg:pt-5 xl:pt-10">
-          <div className="hidden 2xl:flex relative">
-            <div className="absolute top-[100px] 2xl:left-[-120px]">
-              <Image
-                alt="Quote illustration"
-                src={QuotePic}
-                width={114}
-                height={80}
-              />
+    <section id="about" className={`py-20 ${className}`}>
+      <div className="max-w-4xl mx-auto">
+        <SlideUp delay={0.2}>
+          <TitleSection title="About Me" />
+
+          <div className="grid md:grid-cols-2 gap-12 mt-12">
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                Hi, I&apos;m Abba Sali 👋
+              </h3>
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                A passionate Software Developer & UI/UX Designer focused on
+                developing software for people. I love creating digital
+                experiences that make a difference.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                I enjoy architecting software and developing elegant solutions
+                to complex problems. My goal is to build applications that are
+                not only functional but also beautiful and user-friendly.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+              <motion.blockquote
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <p
+                  className={cn(
+                    SkylarSansBoldUiDisplay.variable,
+                    SkylarSansBoldUiDisplay.className,
+                    "text-2xl md:text-3xl font-light text-gray-800 leading-relaxed mb-6"
+                  )}
+                >
+                  &quot;A problem without a solution is a poorly stated
+                  problem.&quot;
+                </p>
+                <cite className="text-gray-500 font-medium">
+                  — Albert Einstein
+                </cite>
+              </motion.blockquote>
             </div>
           </div>
-          <h4
-            className={cn(
-              SkylarSansBoldUiDisplay.variable,
-              SkylarSansBoldUiDisplay.className,
-              "text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[64px] font-[300] leading-[36px] sm:leading-[40px] lg:leading-[50px] xl:leading-[70.4px] text-[#181F1C] mt-7 sm:pt-10 lg:pt-16 xl:mt-32"
-            )}
-          >
-            A problem without a <br />
-            solution is a poorly stated <br />
-            problem.
-          </h4>
-          <ParagraphBody className="pt-2 sm:pt-5 lg:pt-7 xl:pt-10 text-[14px] sm:text-[20px] xl:text-[24px] text-[#696D6B] leading-[20px] lg:leading-[36px] font-[400]">
-            Albert Einstein 🤓
-          </ParagraphBody>
-        </div>
-      </SlideUp>
-    </div>
+        </SlideUp>
+      </div>
+    </section>
   );
 };
 
