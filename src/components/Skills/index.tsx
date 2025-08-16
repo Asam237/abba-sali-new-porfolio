@@ -139,7 +139,6 @@ const Skills = ({ className, ...props }: SkillsProps) => {
       <div className="max-w-6xl mx-auto">
         <SlideUp delay={0.2}>
           <TitleSection title="Skills & Technologies" />
-
           <div className="space-y-12">
             {skills.map((category, index) => (
               <div key={index}>

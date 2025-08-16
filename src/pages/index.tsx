@@ -45,7 +45,6 @@ const Home = () => {
           <Experience />
         </div>
       </DefaultLayout>
-
       {/* Scroll to top button */}
       {isVisible && (
         <button
@@ -55,7 +54,6 @@ const Home = () => {
           <FaArrowUp size={16} />
         </button>
       )}
-
       <Footer />
     </div>
   );

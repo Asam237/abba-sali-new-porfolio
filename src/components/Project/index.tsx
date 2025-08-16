@@ -77,7 +77,6 @@ const Project = ({ className }: ProjectProps) => {
       <div className="max-w-6xl mx-auto">
         <SlideUp delay={0.2}>
           <TitleSection title="Selected Projects" />
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {datas.map((item, index) => (
               <ProjectCard
@@ -91,7 +90,6 @@ const Project = ({ className }: ProjectProps) => {
               />
             ))}
           </div>
-
           <div className="text-center">
             <Link
               href="https://github.com/Asam237"

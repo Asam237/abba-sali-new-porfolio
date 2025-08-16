@@ -87,7 +87,6 @@ const Experience = ({ className, ...props }: ExperienceProps) => {
       <div className="max-w-4xl mx-auto">
         <SlideUp delay={0.2}>
           <TitleSection title="Work Experience" />
-
           <div className="space-y-4">
             {experiences.map((experience) => (
               <div
@@ -121,7 +120,6 @@ const Experience = ({ className, ...props }: ExperienceProps) => {
                     )}
                   </div>
                 </button>
-
                 <AnimatePresence>
                   {expandedId === experience.id && (
                     <motion.div

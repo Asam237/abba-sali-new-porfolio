@@ -12,7 +12,6 @@ const About = ({ className, ...props }: AboutProps) => {
       <div className="max-w-4xl mx-auto">
         <SlideUp delay={0.2}>
           <TitleSection title="About Me" />
-
           <div className="grid md:grid-cols-2 gap-12 mt-12">
             <div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
@@ -29,7 +28,6 @@ const About = ({ className, ...props }: AboutProps) => {
                 not only functional but also beautiful and user-friendly.
               </p>
             </div>
-
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
               <motion.blockquote
                 initial={{ opacity: 0, y: 20 }}

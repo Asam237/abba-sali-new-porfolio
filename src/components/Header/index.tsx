@@ -20,7 +20,7 @@ const Header = () => {
           transition={{ duration: 0.8 }}
         >
           <h4 className="text-lg lg:text-xl font-medium text-gray-600 mb-4">
-            Hello, I&apos;m
+            Hello, I&apos;
           </h4>
           <h1
             className={`${fontClass} text-5xl md:text-7xl lg:text-8xl font-light text-gray-900 mb-6 text-shadow-sm`}
@@ -65,7 +65,6 @@ const Header = () => {
               <FaWhatsapp size={20} className="text-green-600" />
             </Link>
           </div>
-
           <Link
             href="https://drive.google.com/file/d/1jwXSy7uFHpWwU8HRuNSaWDIwv55Sc8wb/view?usp=drive_link"
             target="_blank"
