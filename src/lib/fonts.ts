@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 
 /**
- * Nunito
+ * Poppins
  */
 export const PoppinsUiDisplay = localFont({
   src: [
