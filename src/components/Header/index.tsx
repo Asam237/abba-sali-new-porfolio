@@ -20,7 +20,7 @@ const Header = () => {
           transition={{ duration: 0.8 }}
         >
           <h4 className="text-lg lg:text-xl font-medium text-gray-600 mb-4">
-            Hello, I&apos;
+            Hello, I&apos;m
           </h4>
           <h1
             className={`${fontClass} text-5xl md:text-7xl lg:text-8xl font-light text-gray-900 mb-6 text-shadow-sm`}
