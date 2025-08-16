@@ -1,7 +1,6 @@
 import cn from "clsx";
-import { ParagraphBody, ProjectCard, TitleSection } from "../Common";
+import { ProjectCard, TitleSection } from "../Common";
 import Link from "next/link";
-import { NunitoUiDisplay } from "@/lib/fonts";
 import { FaArrowRight } from "react-icons/fa";
 import SlideUp from "@/Animations/SlideUp";
 import Project1 from "../../../public/pictures/p1.webp";
@@ -39,38 +38,37 @@ interface ProjectProps extends React.HTMLAttributes<HTMLElement> {}
 
 const Project = ({ className }: ProjectProps) => {
   return (
-    <SlideUp className={cn("relative", className)} id="projects" delay={0.3}>
-      <section className="glass-effect rounded-3xl p-8 lg:p-12 my-16">
-        <TitleSection title="Projects" />
-        <div className="mt-[40px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {datas.map((item, index) => (
-            <ProjectCard
-              key={index}
-              link={item.link}
-              title={item.title}
-              github={item.github}
-              description={item.description}
-              skills={item.skills}
-              picture={item.picture}
-            />
-          ))}
-        </div>
-        
-        <div className="section-divider"></div>
-        
-        <div className="flex items-center justify-center mt-8">
-          <Link
-            href={"https://github.com/Asam237"}
-            className="inline-flex items-center space-x-3 px-6 py-3 glass-effect rounded-full text-white font-semibold transition-all duration-300 hover:bg-white/20 hover:scale-105 group"
-          >
-            <span className="text-[16px]">
-              View All Projects
-            </span>
-            <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        </div>
-      </section>
-    </SlideUp>
+    <section id="projects" className={`py-20 ${className}`}>
+      <div className="max-w-6xl mx-auto">
+        <SlideUp delay={0.2}>
+          <TitleSection title="Selected Projects" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {datas.map((item, index) => (
+              <ProjectCard
+                key={index}
+                link={item.link}
+                title={item.title}
+                github={item.github}
+                description={item.description}
+                skills={item.skills}
+                picture={item.picture}
+              />
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <Link
+              href="https://github.com/Asam237"
+              className="btn-primary inline-flex items-center space-x-2"
+            >
+              <span>View All Projects</span>
+              <FaArrowRight size={16} />
+            </Link>
+          </div>
+        </SlideUp>
+      </div>
+    </section>
   );
 };
 

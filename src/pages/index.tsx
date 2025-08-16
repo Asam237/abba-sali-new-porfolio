@@ -1,6 +1,6 @@
 import About from "@/components/About";
 import Aside from "@/components/Aside";
-import Experiences from "@/components/Experience";
+import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Project from "@/components/Project";
@@ -11,16 +11,10 @@ import { FaArrowUp } from "react-icons/fa";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-    if (currentScrollY < lastScrollY && currentScrollY > 100) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-    setLastScrollY(currentScrollY);
+    setIsVisible(currentScrollY > 300);
   };
 
   const scrollToTop = () => {
@@ -33,28 +27,31 @@ const Home = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       <Aside />
-      <DefaultLayout className="py-[111px]">
-        <div className="container mx-auto">
+      <DefaultLayout className="pt-16">
+        <div className="max-w-6xl mx-auto px-6">
           <Header />
-          <About className="mt-[40px] sm:mt-[60px] lg:mt-[120px] xl:mt-[165px]" />
+          <About />
           <Project />
           <Skills />
-          <Experiences />
+          <Experience />
         </div>
       </DefaultLayout>
+      
+      {/* Scroll to top button */}
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed rounded-full cursor-pointer bottom-[50px] right-[50px] w-16 h-16 hidden xl:flex items-center justify-center glass-effect text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 z-10 pulse-glow"
+          className="fixed bottom-8 right-8 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
         >
-          <FaArrowUp />
+          <FaArrowUp size={16} />
         </button>
       )}
+      
       <Footer />
     </div>
   );
