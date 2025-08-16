@@ -36,21 +36,21 @@ const Home = () => {
   }, [lastScrollY]);
 
   return (
-    <div className="bg-primary">
+    <div className="min-h-screen">
       <Aside />
       <DefaultLayout className="py-[111px]">
         <div className="container mx-auto">
           <Header />
-          <About className="mt-[40px] sm:mt-[60px] lg:mt-[120px] xl:mt-[165px] mb-[40px]" />
+          <About className="mt-[40px] sm:mt-[60px] lg:mt-[120px] xl:mt-[165px]" />
           <Project />
-          <Skills className="mt-[40px]" />
+          <Skills />
           <Experiences />
         </div>
       </DefaultLayout>
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed rounded-full cursor-pointer bottom-[50px] right-[50px] border-2 border-[#181F1C] w-16 h-16 hidden xl:flex items-center justify-center hover:border-[3px] bg-primary z-10"
+          className="fixed rounded-full cursor-pointer bottom-[50px] right-[50px] w-16 h-16 hidden xl:flex items-center justify-center glass-effect text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 z-10 pulse-glow"
         >
           <FaArrowUp />
         </button>

@@ -90,10 +90,10 @@ const Aside = () => {
                   className={`${cn(
                     NunitoUiDisplay.variable,
                     NunitoUiDisplay.className
-                  )} text-[#181F1C] text-[16px] leading-[21.82px] font-[600] tracking-[1%] pl-4 xl:pl-0 relative group`}
+                  )} text-white text-[16px] leading-[21.82px] font-[600] tracking-[1%] pl-4 xl:pl-0 relative group`}
                 >
                   Abba Sali
-                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </div>
               <div className="hidden xl:flex mt-[119px]">
@@ -105,10 +105,10 @@ const Aside = () => {
                       className={`${cn(
                         NunitoUiDisplay.variable,
                         NunitoUiDisplay.className
-                      )} relative group font-[500] inline-block text-[#181F1C] transition duration-300 hover:text-[#000000] hover:font-[600]`}
+                      )} relative group font-[500] inline-block text-white/80 transition duration-300 hover:text-white hover:font-[600]`}
                     >
                       {item.name}
-                      <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
+                      <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   ))}
                 </ul>
@@ -123,18 +123,18 @@ const Aside = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed left-0 top-0 w-full h-screen bg-[#181F1C] z-30"
+              className="fixed left-0 top-0 w-full h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 z-30"
             >
-              <div className="flex justify-start items-center absolute top-[58px] right-0 bg-[#181F1C] left-[20px]">
+              <div className="flex justify-start items-center absolute top-[58px] right-0 left-[20px]">
                 <button
-                  className="flex xl:hidden cursor-pointer bg-[#181F1C]"
+                  className="flex xl:hidden cursor-pointer"
                   onClick={toggleMenu}
                   aria-label={isOpen ? "Close menu" : "Open menu"}
                 >
                   {isOpen ? (
                     <FaWindowClose
                       size={26}
-                      className="bg-[#181F1C] text-primary"
+                      className="text-white"
                     />
                   ) : (
                     <FaBars size={26} />
@@ -145,15 +145,15 @@ const Aside = () => {
                   className={`${cn(
                     NunitoUiDisplay.variable,
                     NunitoUiDisplay.className
-                  )} text-primary text-[16px] leading-[21.82px] font-[600] tracking-[1%] pl-4 lg:pl-0 relative group bg-[#181F1C]`}
+                  )} text-white text-[16px] leading-[21.82px] font-[600] tracking-[1%] pl-4 lg:pl-0 relative group`}
                 >
                   Abba Sali
-                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </div>
 
               <div>
-                <ul className="flex flex-col space-y-[6px] mt-52 bg-[#181F1C]">
+                <ul className="flex flex-col space-y-[6px] mt-52">
                   {navs.map((item, index) => (
                     <Link
                       href={item.path}
@@ -162,7 +162,7 @@ const Aside = () => {
                       className={`${cn(
                         SkylarSansBoldUiDisplay.variable,
                         SkylarSansBoldUiDisplay.className
-                      )} font-[600] inline-block bg-[#181F1C] text-primary text-center uppercase text-2xl`}
+                      )} font-[600] inline-block text-white text-center uppercase text-2xl hover:text-blue-300 transition-colors duration-300`}
                     >
                       {item.name}
                     </Link>

@@ -40,9 +40,9 @@ interface ProjectProps extends React.HTMLAttributes<HTMLElement> {}
 const Project = ({ className }: ProjectProps) => {
   return (
     <SlideUp className={cn("relative", className)} id="projects" delay={0.3}>
-      <section>
+      <section className="glass-effect rounded-3xl p-8 lg:p-12 my-16">
         <TitleSection title="Projects" />
-        <div className="mt-[40px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:gap-x-4 gap-y-4 md:gap-y-0 md:gap-x-4">
+        <div className="mt-[40px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {datas.map((item, index) => (
             <ProjectCard
               key={index}
@@ -55,21 +55,18 @@ const Project = ({ className }: ProjectProps) => {
             />
           ))}
         </div>
-        <div className="flex items-center space-x-2 mt-[10px] sm:mt-[15px] lg:mt-[18px] px-2">
+        
+        <div className="section-divider"></div>
+        
+        <div className="flex items-center justify-center mt-8">
           <Link
             href={"https://github.com/Asam237"}
-            className="flex items-center space-x-2 transition-transform transform hover:scale-110"
+            className="inline-flex items-center space-x-3 px-6 py-3 glass-effect rounded-full text-white font-semibold transition-all duration-300 hover:bg-white/20 hover:scale-105 group"
           >
-            <ParagraphBody
-              className={`${cn(
-                NunitoUiDisplay.variable,
-                NunitoUiDisplay.className
-              )} text-[#181F1C] text-[12px] sm:text-[13px] lg:text-[18px] tracking-[1%] lg:leading-[44.8px] font-[500] relative group`}
-            >
+            <span className="text-[16px]">
               View All Projects
-              <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#181F1C] transition-all duration-300 group-hover:w-full"></span>
-            </ParagraphBody>
-            <FaArrowRight />
+            </span>
+            <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
       </section>

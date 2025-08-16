@@ -80,36 +80,36 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
 
   return (
     <SlideUp id="experiences" delay={0.3} className="mt-[40px]">
-      <section className={className}>
+      <section className={`${className} glass-effect rounded-3xl p-8 lg:p-12 my-16`}>
         <TitleSection title="Experience" />
         <div className="mt-[40px]">
-          <div className="flex flex-col md:flex-row md:max-h-[232px]">
+          <div className="flex flex-col md:flex-row">
             <div className="md:w-2/6">
               {experiences.map((item) => (
                 <div key={item.id} className="mb-2">
                   <div>
                     <p
-                      className={`cursor-pointer px-4 py-2 font-bold flex justify-between items-center
+                      className={`cursor-pointer px-4 py-3 font-bold flex justify-between items-center rounded-xl transition-all duration-300
                       ${cn(NunitoUiDisplay.variable, NunitoUiDisplay.className)}
                       ${
                         activeId === item.id
-                          ? "bg-[#686D6B] text-gray-300 rounded-xl md:rounded-tr-none md:rounded-br-none md:rounded-tl-xl md:rounded-bl-xl"
-                          : ""
+                          ? "bg-white/20 text-white md:rounded-tr-none md:rounded-br-none"
+                          : "text-white/70 hover:bg-white/10 hover:text-white"
                       }`}
                       onClick={() => setActiveId(item.id)}
                     >
                       {item.experience}
-                      <span className={`bg-[#686D6B] flex md:hidden`}>
+                      <span className="flex md:hidden">
                         {activeId === item.id ? (
                           <Image
                             src={Arrow}
                             alt="picture"
-                            className="bg-[#686D6B]"
+                            className="opacity-80"
                             width={20}
                             height={20}
                           />
                         ) : (
-                          <FaPlus className="text-[#686D6B]" size={12} />
+                          <FaPlus className="text-white/70" size={12} />
                         )}
                       </span>
                     </p>
@@ -121,30 +121,30 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="flex flex-col space-y-3 p-4 bg-[#686D6B] rounded-xl md:hidden my-2"
+                        className="flex flex-col space-y-3 p-4 glass-effect rounded-xl md:hidden my-2"
                       >
                         <p
                           className={`${cn(
                             NunitoUiDisplay.className,
                             NunitoUiDisplay.variable
-                          )} font-bold text-lg bg-[#686D6B] text-gray-300`}
+                          )} font-bold text-lg text-white`}
                         >
                           {item.title}
                         </p>
                         <p
                           className={`
                     ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
-                      text-xs font-semibold bg-[#686D6B] text-gray-300`}
+                      text-xs font-semibold text-white/80`}
                         >
                           {item.period}
                         </p>
-                        <div className="flex flex-col space-y-1 bg-[#686D6B]">
+                        <div className="flex flex-col space-y-1">
                           {item.items.map((item, index) => (
                             <p
                               key={index}
                               className={`
                     ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
-                      text-sm font-normal bg-[#686D6B] text-gray-300`}
+                      text-sm font-normal text-white/70`}
                             >
                               {item}
                             </p>
@@ -161,13 +161,13 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
               className={`
                 ${
                   activeId !== "lagence"
-                    ? "md:rounded-bl-xl"
+                    ? "md:rounded-bl-2xl"
                     : "md:rounded-bl-none"
                 } 
                 ${
                   activeId !== "oim" ? "md:rounded-tl-xl" : "md:rounded-tl-none"
                 } 
-              hidden md:flex flex-col md:w-4/6 p-4 bg-[#686D6B] rounded-xl md:rounded-tl-none md:rounded-bl-none md:rounded-tr-xl md:rounded-br-xl`}
+              hidden md:flex flex-col md:w-4/6 p-6 glass-effect rounded-2xl md:rounded-tl-none md:rounded-bl-none`}
             >
               {experiences
                 .filter((item) => item.id === activeId)
@@ -177,30 +177,30 @@ const Experiences = ({ className, ...props }: SkillsProps) => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                     key={item.id}
-                    className="flex flex-col space-y-3 bg-[#686D6B]"
+                    className="flex flex-col space-y-4"
                   >
                     <p
                       className={`${cn(
                         NunitoUiDisplay.className,
                         NunitoUiDisplay.variable
-                      )} font-bold text-lg bg-[#686D6B] text-gray-300`}
+                      )} font-bold text-xl text-white`}
                     >
                       {item.title}
                     </p>
                     <p
                       className={`
                     ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
-                      text-xs font-semibold bg-[#686D6B] text-gray-300`}
+                      text-sm font-semibold text-white/80`}
                     >
                       {item.period}
                     </p>
-                    <div className="flex flex-col space-y-1 bg-[#686D6B]">
+                    <div className="flex flex-col space-y-2">
                       {item.items.map((item, index) => (
                         <p
                           key={index}
                           className={`
                     ${cn(NunitoUiDisplay.className, NunitoUiDisplay.variable)}
-                      text-sm font-normal bg-[#686D6B] text-gray-300`}
+                      text-sm font-normal text-white/80`}
                         >
                           {item}
                         </p>

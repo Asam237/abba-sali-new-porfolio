@@ -154,20 +154,20 @@ const skills: SkilInput[] = [
 const Skills = ({ className, ...props }: SkillsProps) => {
   return (
     <SlideUp className={cn("relative", className)} id="skills" delay={0.3}>
-      <section {...props}>
+      <section {...props} className="glass-effect rounded-3xl p-8 lg:p-12 my-16">
         <TitleSection title="skills" />
         <div className="mt-[40px]">
           {skills.map((item, index) => (
-            <div key={index} className="mt-4">
+            <div key={index} className="mt-6 first:mt-0">
               <h4
                 className={`${cn(
                   NunitoUiDisplay.variable,
                   NunitoUiDisplay.className
-                )} text-[#181F1C] text-[13px] font-[600] uppercase tracking-[15%]`}
+                )} text-white text-[13px] font-[600] uppercase tracking-[15%] mb-3`}
               >
                 {item.title}
               </h4>
-              <div className="flex gap-1.5 flex-wrap mt-1">
+              <div className="flex gap-2 flex-wrap">
                 {item.items.map((i, ii) => (
                   <SkillCard key={ii} icon={i.icon}>
                     {i.skill}
