@@ -11,7 +11,7 @@ export const PoppinsUiDisplay = localFont({
       style: "medium",
     },
     {
-      path: "../fonts/Poppins/bold.ttf",
+      path: "../fonts/Poppins/Bold.ttf",
       weight: "600",
       style: "bold",
     },
