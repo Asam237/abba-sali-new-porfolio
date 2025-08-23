@@ -63,7 +63,7 @@ const skills: SkilInput[] = [
       },
       {
         icon: <Image width={20} height={20} src={Django} alt="Django" />,
-        skill: "Microsoft 365",
+        skill: "Django",
       },
     ],
   },
@@ -162,3 +162,4 @@ const Skills = ({ className, ...props }: SkillsProps) => {
 };
 
 export default Skills;
+
