@@ -5,7 +5,7 @@ Portfolio
 
 ## Composition
 
-Ce kit de démarrage est composé de:
+Ce kit de démarrage de mon portfolio est composé de:
 
 - [Next.js](https://nextjs.org/)
   <br/>
