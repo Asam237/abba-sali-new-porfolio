@@ -35,8 +35,6 @@ const SlideUp = ({
     >
       <div {...props}></div>
       {children}
-	  console.log();
-	  
     </motion.div>
   );
 };
