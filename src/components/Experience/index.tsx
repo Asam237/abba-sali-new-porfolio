@@ -20,7 +20,7 @@ const experiences: ExperienceType[] = [
   {
     id: "oim",
     company: "IOM — UN Migration",
-    title: "Data Entry Consultant",
+    title: "Data Processing Consultant",
     period: "May 2024 - Present",
     items: [
       "Register migrants in IOM database",
