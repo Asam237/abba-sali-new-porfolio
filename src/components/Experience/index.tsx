@@ -20,11 +20,21 @@ const experiences: ExperienceType[] = [
   {
     id: "oim",
     company: "IOM — UN Migration",
-    title: "Data Processing Consultant",
-    period: "May 2024 - Present",
+    title: "Medical Assistant - Data Processing",
+    period: "Nov 2025 - Present",
     items: [
       "Register migrants in IOM database",
       "Maintain daily health assessment statistics and update records",
+      "Contribute to the management of customer satisfaction assessments",
+    ],
+  },
+  {
+    id: "oim",
+    company: "IOM — UN Migration",
+    title: "Data Processing Consultant",
+    period: "May 2024 - Oct 2025",
+    items: [
+      "Register migrants in IOM database",
       "Contribute to the management of customer satisfaction assessments",
     ],
   },
@@ -91,23 +101,23 @@ const Experience = ({ className, ...props }: ExperienceProps) => {
             {experiences.map((experience) => (
               <div
                 key={experience.id}
-                className="bg-white rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md"
+                className="overflow-hidden bg-white border border-gray-200 rounded-2xl transition-all duration-300 hover:shadow-md"
               >
                 <button
                   onClick={() => toggleExpanded(experience.id)}
-                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                  className="flex items-center justify-between w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200"
                 >
                   <div className="flex-1">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                        <h3 className="mb-1 text-lg font-semibold text-gray-900">
                           {experience.title}
                         </h3>
-                        <p className="text-blue-600 font-medium">
+                        <p className="font-medium text-blue-600">
                           {experience.company}
                         </p>
                       </div>
-                      <p className="text-sm text-gray-500 mt-2 md:mt-0">
+                      <p className="mt-2 text-sm text-gray-500 md:mt-0">
                         {experience.period}
                       </p>
                     </div>
@@ -130,14 +140,14 @@ const Experience = ({ className, ...props }: ExperienceProps) => {
                       className="overflow-hidden"
                     >
                       <div className="px-6 pb-6">
-                        <div className="border-t border-gray-100 pt-4">
+                        <div className="pt-4 border-t border-gray-100">
                           <ul className="space-y-2">
                             {experience.items.map((item, index) => (
                               <li
                                 key={index}
                                 className="flex items-start text-gray-600"
                               >
-                                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span className="flex-shrink-0 w-2 h-2 mt-2 mr-3 bg-blue-500 rounded-full"></span>
                                 <span className="text-sm leading-relaxed">
                                   {item}
                                 </span>
